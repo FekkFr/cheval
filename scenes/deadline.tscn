@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://8301j238cgu1"]
+
+[ext_resource type="Script" uid="uid://bx52gxx2fp2fd" path="res://scenes/deadline.gd" id="1_mlffx"]
+
+[node name="Deadline" type="Control" unique_id=1021376048]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mlffx")
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=543042820]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelAmount" type="Label" parent="Layout" unique_id=897781546]
+layout_mode = 2
+text = "Tranche due : "
+
+[node name="LabelCash" type="Label" parent="Layout" unique_id=1464127252]
+layout_mode = 2
+text = "CAISSE : "
+
+[node name="BtnPay" type="Button" parent="Layout" unique_id=1867262285]
+layout_mode = 2
+text = "PAYER"

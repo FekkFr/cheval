@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c6gmsbv4fc4en"]
+
+[ext_resource type="Script" uid="uid://ciojdbsd3bear" path="res://scenes/oval_track.gd" id="1_00we1"]
+
+[node name="RaceTrack" type="Node2D" unique_id=961287758]
+
+[node name="OvalTrack" type="Node2D" parent="." unique_id=1938601732]
+script = ExtResource("1_00we1")

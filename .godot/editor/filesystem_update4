@@ -1,0 +1,4 @@
+res://scenes/world.tscn
+res://scripts/gamecamera.gd
+res://scenes/oval_track.gd
+res://scripts/bookmaker.gd

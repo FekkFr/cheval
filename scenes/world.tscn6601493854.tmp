@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://84wagx8bqibc"]
+
+[ext_resource type="Script" uid="uid://cbuvlbnbwmv4x" path="res://scripts/gamecamera.gd" id="1_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://chpi4aqkt6dn0" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/wall_1.glb" id="1_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://byhs1sdc1qc80" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/floor0.glb" id="2_k0juu"]
+[ext_resource type="PackedScene" uid="uid://vnbtut4g4837" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/table.glb" id="3_71j4m"]
+[ext_resource type="PackedScene" uid="uid://c5cpl2fyyojq2" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/ceiling2.fbx" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://corbidfwrabhe" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/pillar0_1-4.fbx" id="5_qfnet"]
+[ext_resource type="PackedScene" uid="uid://ckbuabaty3tqm" path="res://assets/carte.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://d3k8po1jdxi71" path="res://scenes/main.tscn" id="7_4mrxx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hjp0y"]
+size = Vector3(1, 1.7145996, 3.4576416)
+
+[node name="World" type="Node3D" unique_id=1595518245]
+script = ExtResource("1_4mrxx")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=212301542]
+transform = Transform3D(0.7939118, 2.6577958e-08, -0.608033, 0.60803294, -3.4702982e-08, 0.7939118, -1.6370426e-15, -1, -4.3711385e-08, -0.6095648, 6.3283463, 0)
+light_color = Color(1, 0.6666667, 0.2, 1)
+light_energy = 21.97
+shadow_bias = 0.5
+spot_range = 7.59
+spot_angle = 31.75
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1850855140]
+transform = Transform3D(-4.371139e-08, 0.19594614, -0.98061466, 0, 0.98061466, 0.19594614, 1, 8.5650775e-09, -4.2864027e-08, -2.393, 3.848, 0)
+fov = 60.0
+
+[node name="Room" type="Node" parent="." unique_id=1627982376]
+
+[node name="Floors" type="Node" parent="Room" unique_id=1730846135]
+
+[node name="floor02" parent="Room/Floors" unique_id=1789224365 instance=ExtResource("2_k0juu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="floor04" parent="Room/Floors" unique_id=1648527925 instance=ExtResource("2_k0juu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -6)
+
+[node name="floor03" parent="Room/Floors" unique_id=1095471470 instance=ExtResource("2_k0juu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 6)
+
+[node name="Furnitures" type="Node" parent="Room" unique_id=1498677988]
+
+[node name="table" parent="Room/Furnitures" unique_id=1461178710 instance=ExtResource("3_71j4m")]
+transform = Transform3D(1.4999368, -0.013760026, 0, 0.013760026, 1.4999368, 0, 0, 0, 1.5, 0.03875172, 0, 0)
+
+[node name="Walls" type="Node" parent="Room" unique_id=920003869]
+
+[node name="wall_12" parent="Room/Walls" unique_id=2025321017 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -5)
+
+[node name="wall_13" parent="Room/Walls" unique_id=613260438 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 0, 0, 5)
+
+[node name="wall_15" parent="Room/Walls" unique_id=749257607 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -3, 0, 0)
+
+[node name="wall_17" parent="Room/Walls" unique_id=588277337 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -3, 0, -6)
+
+[node name="wall_16" parent="Room/Walls" unique_id=23034451 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -3, 0, 6)
+
+[node name="wall_18" parent="Room/Walls" unique_id=850991160 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 3, 0, 0)
+
+[node name="wall_19" parent="Room/Walls" unique_id=1334443945 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 3, 0, -6)
+
+[node name="wall_20" parent="Room/Walls" unique_id=1075336065 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 3, 0, 6)
+
+[node name="Ceiling" type="Node" parent="Room" unique_id=1355281788]
+
+[node name="ceiling2" parent="Room/Ceiling" unique_id=604754395 instance=ExtResource("4_k0juu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="ceiling4" parent="Room/Ceiling" unique_id=286131228 instance=ExtResource("4_k0juu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 6)
+
+[node name="ceiling3" parent="Room/Ceiling" unique_id=1277518803 instance=ExtResource("4_k0juu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -6)
+
+[node name="Pillar" type="Node" parent="Room" unique_id=184711477]
+
+[node name="G_Pillar" parent="Room/Pillar" unique_id=1888423294 instance=ExtResource("5_qfnet")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 3, 0, -5)
+
+[node name="D_Pillar" parent="Room/Pillar" unique_id=2121976160 instance=ExtResource("5_qfnet")]
+transform = Transform3D(-3, 0, 2.6226832e-07, 0, 3, 0, -2.6226832e-07, 0, -3, 3, 0, 5)
+
+[node name="Carte" parent="." unique_id=619825586 instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.742, 4.06, 0)
+
+[node name="ClickArea" type="Area3D" parent="Carte/Cube" parent_id_path=PackedInt32Array(619825586, 746306846) index="0" unique_id=2105549594]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carte/Cube/ClickArea" unique_id=67695842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.020454, -0.08394003, -0.014221191)
+shape = SubResource("BoxShape3D_hjp0y")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=493805994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.027953, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1563262921]
+
+[node name="Main" parent="CanvasLayer" unique_id=2037518860 instance=ExtResource("7_4mrxx")]
+anchors_preset = -1
+offset_left = 412.745
+offset_top = 100.0
+offset_right = 412.745
+offset_bottom = 100.0
+scale = Vector2(0.34, 0.34)
+
+[node name="BtnBack" type="Button" parent="CanvasLayer" unique_id=692749410]
+offset_left = 9.0
+offset_right = 80.0
+offset_bottom = 31.0
+text = "RETOUR"
+
+[node name="LabelCashWorld" type="Label" parent="CanvasLayer" unique_id=1950619084]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="LabelTrancheWorld" type="Label" parent="CanvasLayer" unique_id=1711528794]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 30.0
+offset_bottom = 53.0
+grow_horizontal = 0
+
+[editable path="Carte"]

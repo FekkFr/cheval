@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b68s0qkee3ens"
+path="res://.godot/imported/stairbanister.obj-299fe1027d792dc181fe405e45d5208b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stairbanister.obj-299fe1027d792dc181fe405e45d5208b.mesh"]
+
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/OBJ/Structure/stairbanister.obj"
+dest_files=["res://.godot/imported/stairbanister.obj-299fe1027d792dc181fe405e45d5208b.mesh", "res://.godot/imported/stairbanister.obj-299fe1027d792dc181fe405e45d5208b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

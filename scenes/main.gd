@@ -108,10 +108,8 @@ func _on_shop_pressed():
 
 func _enable_horse_targeting(enabled: bool) -> void:
 	for i in target_buttons.size():
-		target_buttons[i].visible = enabled
-		target_buttons[i].disabled = !enabled
-		target_buttons[i].custom_minimum_size = Vector2(100, 40)
-		target_buttons[i].text = "🎯 CIBLER"
+		target_buttons[i].visible = false  # toujours caché
+		target_buttons[i].disabled = true
 	btn_launch.disabled = enabled
 
 func _on_horse_targeted(index: int) -> void:

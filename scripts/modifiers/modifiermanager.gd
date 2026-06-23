@@ -125,3 +125,9 @@ func reset_run() -> void:
 	active_modifiers.clear()
 	tickets = 0
 	emit_signal("tickets_changed", tickets)
+
+func get_modifier_by_id(id: String) -> ModifierBase:
+	for mod in all_modifiers:
+		if mod.mod_id == id:
+			return mod.duplicate()
+	return null

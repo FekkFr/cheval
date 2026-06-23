@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1781988583
+::res://::1782230894
 icon.svg::CompressedTexture2D::6552795212770743817::1781004382::1781962010::1::::<><><>0<>0<>4be87367f56a6de1bf713632f0a3bd69<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://__MACOSX/::1781962010
 ._icon.svg::CompressedTexture2D::3950725838456681934::1781004382::1781962010::0::::<><><>0<>0<>189ba0a21584f7d3fba05cceca030389<>::
@@ -32,10 +32,11 @@ icon.svg::CompressedTexture2D::6552795212770743817::1781004382::1781962010::1:::
 ._mod_rumeur.gd::GDScript::-1::1781627696::0::1::::<>RefCounted<><>0<>0<><>::
 ._mod_sabotage.gd::GDScript::-1::1781625818::0::1::::<>RefCounted<><>0<>0<><>::
 ._mod_stimulant.gd::GDScript::-1::1781627181::0::1::::<>RefCounted<><>0<>0<><>::
-::res://assets/::1781973276
+::res://assets/::1782209292
 carte.glb::PackedScene::1680597827412819715::1781966038::1781967178::1::::<><><>0<>0<>bacc94c40500a7f8d0be414f826f958b<>res://.godot/imported/carte.glb-5f5b551fa7c619df2e899e9c570a16cc.scn::
 carte.tscn::PackedScene::5478008574795733304::1781973276::0::1::::<><><>0<>0<><>::uid://x7dg28qw2fo2::::res://assets/carte.glb
 room.glb::PackedScene::7941863177067524502::1781883888::1781962011::1::::<><><>0<>0<>f40f0f041626a391e27919a6582e4289<>res://.godot/imported/room.glb-b3da7b246a2bb12d6c747cc73971049d.scn::
+statut.glb::PackedScene::498774954199011164::1782209292::1782209292::1::::<><><>0<>0<>1d59e07dd53de9e6954f44ebf304a693<>res://.godot/imported/statut.glb-08b390bf2c4bfa69b10273e3ff34f8aa.scn::
 ::res://assets/2d/::1781967959
 horse.png::CompressedTexture2D::987676631387163497::1781967890::1781967959::1::::<><><>0<>0<>ace0e6a4a43922c39164a0bb70c8b5c5<>res://.godot/imported/horse.png-97cef5988c391053a424aeb8dfd4fca0.ctex::
 ::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/::1781962959
@@ -839,32 +840,32 @@ window_wall8.fbx::PackedScene::2213367144768717753::1781962505::1781962528::1:::
 ::res://fonts/::1781962010
 BebasNeue-Regular.ttf::FontFile::4687631797974383765::1781638125::1781962010::1::::<><><>0<>0<>3a4702febfa89fc8b58bd4ce8b320f0a<>res://.godot/imported/BebasNeue-Regular.ttf-dc4a04f9d429abde2dfa730507c94839.fontdata::
 SpecialElite.ttf::FontFile::251749465098407746::1781638146::1781962010::1::::<><><>0<>0<>dab5a376c5c7666ab063c8c5aea5275a<>res://.godot/imported/SpecialElite.ttf-fe9170926e452a88f3eddd1a10d65b18.fontdata::
-::res://proto/::1781004753
 ::res://ressources/::1781004505
-::res://scenes/::1781988579
+::res://scenes/::1782220000
 btn_launch_frame.gd::GDScript::8193012130148426542::1781983267::0::1::::<>Control<><>0<>0<><>::
 deadline.gd::GDScript::4064346738359377025::1781442411::0::1::::<>Control<><>0<>0<><>::
 deadline.tscn::PackedScene::2375599288365679034::1781442673::0::1::::<><><>0<>0<><>::uid://bx52gxx2fp2fd::::res://scenes/deadline.gd
+debug.gd::GDScript::2389065721084888481::1782210674::0::1::::<>Node<><>0<>0<><>::
 gameover.tscn::PackedScene::6566028736213043938::1781443000::0::1::::<><><>0<>0<><>::uid://kgekgxfgpwxi::::res://scenes/game_over.gd
 game_over.gd::GDScript::714535779721210662::1781440585::0::1::::<>Control<><>0<>0<><>::
-main.gd::GDScript::7439645781610437351::1781987851::0::1::::<>Control<><>0<>0<><>::
-main.tscn::PackedScene::9147224674060333442::1781987618::0::1::::<><><>0<>0<><>::uid://dd8245hiut57x::::res://scenes/main.gd<>uid://c6gmsbv4fc4en::::res://scenes/race_track.tscn<>uid://7uaiqtaxqvfr::::res://scripts/sketchy_slider.gd<>uid://doy0yh7xscoks::::res://scenes/btn_launch_frame.gd
-oval_track.gd::GDScript::5363805295867508169::1781976970::0::1::::OvalTrack<>Node2D<><>0<>0<><>::
+main.gd::GDScript::7439645781610437351::1782210549::0::1::::<>Control<><>0<>0<><>::
+main.tscn::PackedScene::9147224674060333442::1782210549::0::1::::<><><>0<>0<><>::uid://dd8245hiut57x::::res://scenes/main.gd<>uid://c6gmsbv4fc4en::::res://scenes/race_track.tscn<>uid://7uaiqtaxqvfr::::res://scripts/sketchy_slider.gd<>uid://doy0yh7xscoks::::res://scenes/btn_launch_frame.gd
+oval_track.gd::GDScript::5363805295867508169::1781989323::0::1::::OvalTrack<>Node2D<><>0<>0<><>::
 race_track.tscn::PackedScene::6961842621181714505::1781976013::0::1::::<><><>0<>0<><>::uid://ciojdbsd3bear::::res://scenes/oval_track.gd
 shop.gd::GDScript::435379685401950498::1781621401::0::1::::<>Control<><>0<>0<><>::
 shop.tscn::PackedScene::6763835081995472064::1781625501::0::1::::<><><>0<>0<><>::uid://gg5v0vbsg0h7::::res://scenes/shop.gd
-world.tscn::PackedScene::2377434920935610292::1781988579::0::1::::<><><>0<>0<><>::uid://cbuvlbnbwmv4x::::res://scripts/gamecamera.gd<>uid://chpi4aqkt6dn0::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/wall_1.glb<>uid://byhs1sdc1qc80::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/floor0.glb<>uid://vnbtut4g4837::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/table.glb<>uid://c5cpl2fyyojq2::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/ceiling2.fbx<>uid://corbidfwrabhe::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/pillar0_1-4.fbx<>uid://ckbuabaty3tqm::::res://assets/carte.tscn<>uid://d3k8po1jdxi71::::res://scenes/main.tscn
-::res://scripts/::1781988479
-bookmaker.gd::GDScript::8735504875411433824::1781627696::0::1::::Bookmaker<>RefCounted<><>0<>0<><>::
+world.tscn::PackedScene::2377434920935610292::1782220000::0::1::::<><><>0<>0<><>::uid://cbuvlbnbwmv4x::::res://scripts/gamecamera.gd<>uid://chpi4aqkt6dn0::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/wall_1.glb<>uid://byhs1sdc1qc80::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/floor0.glb<>uid://vnbtut4g4837::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/table.glb<>uid://c5cpl2fyyojq2::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/ceiling2.fbx<>uid://corbidfwrabhe::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/pillar0_1-4.fbx<>uid://ckbuabaty3tqm::::res://assets/carte.tscn<>uid://d3k8po1jdxi71::::res://scenes/main.tscn<>uid://hdu0ryrrg88w::::res://assets/statut.glb<>uid://babjtfjcf225r::::res://scenes/debug.gd
+::res://scripts/::1782219982
+bookmaker.gd::GDScript::8735504875411433824::1782204494::0::1::::Bookmaker<>RefCounted<><>0<>0<><>::
 btn_point.gd::GDScript::2919568081842135143::1781980486::0::1::::<>Control<><>0<>0<><>::
-gamecamera.gd::GDScript::4885612539367618917::1781988479::0::1::::<>Node3D<><>0<>0<><>::
+gamecamera.gd::GDScript::4885612539367618917::1782219982::0::1::::<>Node3D<><>0<>0<><>::
 gamestate.gd::GDScript::3670286108920628322::1781443000::0::1::::<>Node<><>0<>0<><>::
 horse.gd::GDScript::2382358104208459433::1781440307::0::1::::Horse<>RefCounted<><>0<>0<><>::
 race_resolver.gd::GDScript::8494527517014574290::1781442856::0::1::::RaceResolver<>RefCounted<><>0<>0<><>::
 sketchy_slider.gd::GDScript::2287345707605746239::1781987945::0::1::::<>HSlider<><>0<>0<><>::
-::res://scripts/modifiers/::1781637478
+::res://scripts/modifiers/::1782210714
 achievement_manager.gd::GDScript::991544208419692168::1781627765::0::1::::<>Node<><>0<>0<><>::
-modifiermanager.gd::GDScript::3201475824529492900::1781637478::0::1::::<>Node<><>0<>0<><>::
+modifiermanager.gd::GDScript::3201475824529492900::1782210714::0::1::::<>Node<><>0<>0<><>::
 modifier_base.gd::GDScript::621738021298815875::1781627525::0::1::::ModifierBase<>Resource<><>0<>0<><>::
 mod_pari_perso.gd::GDScript::5657472449788860468::1781628015::0::1::::ModPariPerso<>ModifierBase<><>0<>0<><>::
 mod_rumeur.gd::GDScript::6273896647680395986::1781627696::0::1::::ModRumeur<>ModifierBase<><>0<>0<><>::

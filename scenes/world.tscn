@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://corbidfwrabhe" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/pillar0_1-4.fbx" id="5_qfnet"]
 [ext_resource type="PackedScene" uid="uid://ckbuabaty3tqm" path="res://assets/carte.tscn" id="6_qfnet"]
 [ext_resource type="PackedScene" uid="uid://d3k8po1jdxi71" path="res://scenes/main.tscn" id="7_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://hdu0ryrrg88w" path="res://assets/statut.glb" id="9_7r4gi"]
+[ext_resource type="Script" uid="uid://babjtfjcf225r" path="res://scenes/debug.gd" id="10_w7kh3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_elr2n"]
+size = Vector3(0.6130371, 0.6101074, 0.46350098)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hjp0y"]
 size = Vector3(1, 1.7145996, 3.4576416)
@@ -90,6 +95,44 @@ transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 3,
 [node name="D_Pillar" parent="Room/Pillar" unique_id=2121976160 instance=ExtResource("5_qfnet")]
 transform = Transform3D(-3, 0, 2.6226832e-07, 0, 3, 0, -2.6226832e-07, 0, -3, 3, 0, 5)
 
+[node name="Pions" type="Node" parent="Room" unique_id=1230045944]
+
+[node name="pion1" parent="Room/Pions" unique_id=940754388 instance=ExtResource("9_7r4gi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.615, 2.323, -0.893505)
+
+[node name="ClickArea" type="Area3D" parent="Room/Pions/pion1" unique_id=472470436]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Pions/pion1/ClickArea" unique_id=374451100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.29406738, 0.013244629)
+shape = SubResource("BoxShape3D_elr2n")
+
+[node name="pion2" parent="Room/Pions" unique_id=2078883902 instance=ExtResource("9_7r4gi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.615, 2.323, -0.29350495)
+
+[node name="ClickArea" type="Area3D" parent="Room/Pions/pion2" unique_id=129077456]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Pions/pion2/ClickArea" unique_id=1679004222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.29406738, 0.013244629)
+shape = SubResource("BoxShape3D_elr2n")
+
+[node name="pion3" parent="Room/Pions" unique_id=293311285 instance=ExtResource("9_7r4gi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.615, 2.323, 0.30649507)
+
+[node name="ClickArea" type="Area3D" parent="Room/Pions/pion3" unique_id=1660182119]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Pions/pion3/ClickArea" unique_id=380080497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.29406738, 0.013244629)
+shape = SubResource("BoxShape3D_elr2n")
+
+[node name="pion4" parent="Room/Pions" unique_id=894443104 instance=ExtResource("9_7r4gi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.615, 2.323, 0.9064951)
+
+[node name="ClickArea" type="Area3D" parent="Room/Pions/pion4" unique_id=1585992444]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Pions/pion4/ClickArea" unique_id=1376287033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.29406738, 0.013244629)
+shape = SubResource("BoxShape3D_elr2n")
+
 [node name="Carte" parent="." unique_id=619825586 instance=ExtResource("6_qfnet")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.742, 4.06, 0)
 
@@ -146,5 +189,65 @@ layout_mode = 2
 
 [node name="LabelTrancheWorld" type="Label" parent="CanvasLayer/PanelMoney/VBoxMoney" unique_id=124360702]
 layout_mode = 2
+
+[node name="PionBg" type="ColorRect" parent="CanvasLayer" unique_id=644014114]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4627451)
+
+[node name="PionPopup" type="Control" parent="CanvasLayer" unique_id=1831268467]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelHorseName" type="Label" parent="CanvasLayer/PionPopup" unique_id=1336529887]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="BtnConfirm" type="Button" parent="CanvasLayer/PionPopup" unique_id=1914962346]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -50.0
+offset_right = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "CONFIRM
+"
+
+[node name="BtnCancel" type="Button" parent="CanvasLayer/PionPopup" unique_id=106739794]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 64.5
+offset_top = -50.0
+offset_right = 135.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "RETOUR"
+
+[node name="debug" type="Node" parent="." unique_id=1260297608]
+script = ExtResource("10_w7kh3")
 
 [editable path="Carte"]

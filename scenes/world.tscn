@@ -10,9 +10,17 @@
 [ext_resource type="PackedScene" uid="uid://d3k8po1jdxi71" path="res://scenes/main.tscn" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://hdu0ryrrg88w" path="res://assets/statut.glb" id="9_7r4gi"]
 [ext_resource type="Script" uid="uid://babjtfjcf225r" path="res://scenes/debug.gd" id="10_w7kh3"]
+[ext_resource type="PackedScene" uid="uid://bvjc3q1yqdpcx" path="res://assets/objets/stimulant.glb" id="10_xo05s"]
+[ext_resource type="PackedScene" uid="uid://cn2hc72i38ys5" path="res://assets/bois.glb" id="11_o8fc1"]
+[ext_resource type="PackedScene" uid="uid://d0rvhfa1dgnc3" path="res://assets/objets/paris.glb" id="12_xo05s"]
+[ext_resource type="PackedScene" uid="uid://cbblfkiq1jcdm" path="res://assets/objets/rumeur.glb" id="13_dss4m"]
+[ext_resource type="PackedScene" uid="uid://4ff71pj05w1p" path="res://assets/objets/sabotage.glb" id="14_7t5mc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elr2n"]
 size = Vector3(0.6130371, 0.6101074, 0.46350098)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5qys"]
+size = Vector3(1, 0.91882324, 0.4751587)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hjp0y"]
 size = Vector3(1, 1.7145996, 3.4576416)
@@ -22,6 +30,14 @@ script = ExtResource("1_4mrxx")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=212301542]
 transform = Transform3D(0.7939118, 2.6577958e-08, -0.608033, 0.60803294, -3.4702982e-08, 0.7939118, -1.6370426e-15, -1, -4.3711385e-08, -0.6095648, 6.3283463, 0)
+light_color = Color(1, 0.6666667, 0.2, 1)
+light_energy = 21.97
+shadow_bias = 0.5
+spot_range = 7.59
+spot_angle = 31.75
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1475279157]
+transform = Transform3D(0.7927941, -2.6641617e-08, 0.6094894, -0.6094894, -3.465413e-08, 0.7927942, 5.2312437e-16, -1, -4.371138e-08, -0.6095648, 6.3283463, 0)
 light_color = Color(1, 0.6666667, 0.2, 1)
 light_energy = 21.97
 shadow_bias = 0.5
@@ -39,6 +55,9 @@ fov = 60.0
 [node name="floor02" parent="Room/Floors" unique_id=1789224365 instance=ExtResource("2_k0juu")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
+[node name="floor05" parent="Room/Floors" unique_id=877690071 instance=ExtResource("2_k0juu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6, 0, 0)
+
 [node name="floor04" parent="Room/Floors" unique_id=1648527925 instance=ExtResource("2_k0juu")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -6)
 
@@ -55,11 +74,17 @@ transform = Transform3D(1.4999368, -0.013760026, 0, 0.013760026, 1.4999368, 0, 0
 [node name="wall_12" parent="Room/Walls" unique_id=2025321017 instance=ExtResource("1_4wyf3")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -5)
 
+[node name="wall_21" parent="Room/Walls" unique_id=1533107156 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6, 0, -3)
+
 [node name="wall_13" parent="Room/Walls" unique_id=613260438 instance=ExtResource("1_4wyf3")]
 transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 0, 0, 5)
 
+[node name="wall_14" parent="Room/Walls" unique_id=929631543 instance=ExtResource("1_4wyf3")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, -6, 0, 3)
+
 [node name="wall_15" parent="Room/Walls" unique_id=749257607 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -3, 0, 0)
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9, 0, 0)
 
 [node name="wall_17" parent="Room/Walls" unique_id=588277337 instance=ExtResource("1_4wyf3")]
 transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -3, 0, -6)
@@ -79,7 +104,10 @@ transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 3,
 [node name="Ceiling" type="Node" parent="Room" unique_id=1355281788]
 
 [node name="ceiling2" parent="Room/Ceiling" unique_id=604754395 instance=ExtResource("4_k0juu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.03230667, 0.0025811195, 0.024681091)
+
+[node name="ceiling5" parent="Room/Ceiling" unique_id=1915949067 instance=ExtResource("4_k0juu")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -5.9676933, 0.0025811195, 0.024681091)
 
 [node name="ceiling4" parent="Room/Ceiling" unique_id=286131228 instance=ExtResource("4_k0juu")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 6)
@@ -133,6 +161,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.615, 2.323, 0.9064951)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.29406738, 0.013244629)
 shape = SubResource("BoxShape3D_elr2n")
 
+[node name="Boutique" type="Node3D" parent="Room" unique_id=1045290022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 0)
+
+[node name="Emplacement1" type="Node3D" parent="Room/Boutique" unique_id=458642099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43933868, 0.3852663, 0)
+
+[node name="rumeur" parent="Room/Boutique/Emplacement1" unique_id=1094681805 instance=ExtResource("13_dss4m")]
+visible = false
+
+[node name="sabotage" parent="Room/Boutique/Emplacement1" unique_id=1353508206 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="stimulant" parent="Room/Boutique/Emplacement1" unique_id=251945040 instance=ExtResource("10_xo05s")]
+visible = false
+
+[node name="paris" parent="Room/Boutique/Emplacement1" unique_id=180487222 instance=ExtResource("12_xo05s")]
+visible = false
+
+[node name="ClickArea" type="Area3D" parent="Room/Boutique/Emplacement1" unique_id=676546337]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Boutique/Emplacement1/ClickArea" unique_id=1247986693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04058838, 0.002105713)
+shape = SubResource("BoxShape3D_d5qys")
+
+[node name="Emplacement2" type="Node3D" parent="Room/Boutique" unique_id=578646370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43933868, 0.3852663, -1)
+
+[node name="rumeur" parent="Room/Boutique/Emplacement2" unique_id=945285331 instance=ExtResource("13_dss4m")]
+visible = false
+
+[node name="sabotage" parent="Room/Boutique/Emplacement2" unique_id=1246274608 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="stimulant" parent="Room/Boutique/Emplacement2" unique_id=417387465 instance=ExtResource("10_xo05s")]
+visible = false
+
+[node name="paris" parent="Room/Boutique/Emplacement2" unique_id=1366341311 instance=ExtResource("12_xo05s")]
+visible = false
+
+[node name="ClickArea" type="Area3D" parent="Room/Boutique/Emplacement2" unique_id=1533836120]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Boutique/Emplacement2/ClickArea" unique_id=1820654880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04058838, 0.002105713)
+shape = SubResource("BoxShape3D_d5qys")
+
+[node name="Emplacement3" type="Node3D" parent="Room/Boutique" unique_id=226924521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43933868, 0.3852663, 1)
+
+[node name="rumeur" parent="Room/Boutique/Emplacement3" unique_id=1128348926 instance=ExtResource("13_dss4m")]
+visible = false
+
+[node name="sabotage" parent="Room/Boutique/Emplacement3" unique_id=1326667844 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="stimulant" parent="Room/Boutique/Emplacement3" unique_id=2145319906 instance=ExtResource("10_xo05s")]
+visible = false
+
+[node name="paris" parent="Room/Boutique/Emplacement3" unique_id=802645212 instance=ExtResource("12_xo05s")]
+visible = false
+
+[node name="ClickArea" type="Area3D" parent="Room/Boutique/Emplacement3" unique_id=359783762]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Boutique/Emplacement3/ClickArea" unique_id=383673117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04058838, 0.002105713)
+shape = SubResource("BoxShape3D_d5qys")
+
 [node name="Carte" parent="." unique_id=619825586 instance=ExtResource("6_qfnet")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.742, 4.06, 0)
 
@@ -156,9 +250,16 @@ offset_bottom = 100.0
 scale = Vector2(0.34, 0.34)
 
 [node name="BtnBack" type="Button" parent="CanvasLayer" unique_id=692749410]
-offset_left = 9.0
-offset_right = 80.0
-offset_bottom = 31.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.5
+offset_top = -31.0
+offset_right = 35.5
+grow_horizontal = 2
+grow_vertical = 0
 text = "RETOUR"
 
 [node name="PanelCash" type="PanelContainer" parent="CanvasLayer" unique_id=855835904]
@@ -247,7 +348,37 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "RETOUR"
 
+[node name="BtnShop" type="Button" parent="CanvasLayer" unique_id=1122883896]
+custom_minimum_size = Vector2(71, 31)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.5
+offset_top = -31.0
+offset_right = 35.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BtnBackShop" type="Button" parent="CanvasLayer" unique_id=563793100]
+visible = false
+custom_minimum_size = Vector2(71, 31)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.5
+offset_top = -31.0
+offset_right = 35.5
+grow_horizontal = 2
+grow_vertical = 0
+
 [node name="debug" type="Node" parent="." unique_id=1260297608]
 script = ExtResource("10_w7kh3")
+
+[node name="bois" parent="." unique_id=920657330 instance=ExtResource("11_o8fc1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.557, 2.0835092, 0)
 
 [editable path="Carte"]

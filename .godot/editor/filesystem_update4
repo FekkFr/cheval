@@ -1,3 +1,2 @@
-res://scripts/gamecamera.gd
 res://scenes/world.tscn
-res://assets/carte.tscn
+res://scripts/gamecamera.gd

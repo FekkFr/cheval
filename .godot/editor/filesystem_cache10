@@ -1,5 +1,5 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1782230894
+::res://::1782483385
 icon.svg::CompressedTexture2D::6552795212770743817::1781004382::1781962010::1::::<><><>0<>0<>4be87367f56a6de1bf713632f0a3bd69<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://__MACOSX/::1781962010
 ._icon.svg::CompressedTexture2D::3950725838456681934::1781004382::1781962010::0::::<><><>0<>0<>189ba0a21584f7d3fba05cceca030389<>::
@@ -32,14 +32,21 @@ icon.svg::CompressedTexture2D::6552795212770743817::1781004382::1781962010::1:::
 ._mod_rumeur.gd::GDScript::-1::1781627696::0::1::::<>RefCounted<><>0<>0<><>::
 ._mod_sabotage.gd::GDScript::-1::1781625818::0::1::::<>RefCounted<><>0<>0<><>::
 ._mod_stimulant.gd::GDScript::-1::1781627181::0::1::::<>RefCounted<><>0<>0<><>::
-::res://assets/::1782209292
+::res://assets/::1782483682
+bois.glb::PackedScene::5741464847436562154::1782483682::1782483682::1::::<><><>0<>0<>1064abda6ff91eebf431fca4864fc950<>res://.godot/imported/bois.glb-c31cca13d69d786719f39bf5532790d1.scn::uid://kahuue3lfbwl::::res://assets/bois_ceiling1_texture.png
 carte.glb::PackedScene::1680597827412819715::1781966038::1781967178::1::::<><><>0<>0<>bacc94c40500a7f8d0be414f826f958b<>res://.godot/imported/carte.glb-5f5b551fa7c619df2e899e9c570a16cc.scn::
-carte.tscn::PackedScene::5478008574795733304::1781973276::0::1::::<><><>0<>0<><>::uid://x7dg28qw2fo2::::res://assets/carte.glb
+carte.tscn::PackedScene::5478008574795733304::1782231325::0::1::::<><><>0<>0<><>::uid://x7dg28qw2fo2::::res://assets/carte.glb
+bois_ceiling1_texture.png::CompressedTexture2D::702350229141097555::1782483682::1782483683::1::::<><><>0<>0<>11a02351ab67147405f98b1f504c3e87<>res://.godot/imported/bois_ceiling1_texture.png-a95b270ca886b4d7cab2a54bc1dbbdff.s3tc.ctex::
 room.glb::PackedScene::7941863177067524502::1781883888::1781962011::1::::<><><>0<>0<>f40f0f041626a391e27919a6582e4289<>res://.godot/imported/room.glb-b3da7b246a2bb12d6c747cc73971049d.scn::
 statut.glb::PackedScene::498774954199011164::1782209292::1782209292::1::::<><><>0<>0<>1d59e07dd53de9e6954f44ebf304a693<>res://.godot/imported/statut.glb-08b390bf2c4bfa69b10273e3ff34f8aa.scn::
 ::res://assets/2d/::1781967959
 horse.png::CompressedTexture2D::987676631387163497::1781967890::1781967959::1::::<><><>0<>0<>ace0e6a4a43922c39164a0bb70c8b5c5<>res://.godot/imported/horse.png-97cef5988c391053a424aeb8dfd4fca0.ctex::
-::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/::1781962959
+::res://assets/objets/::1782482538
+paris.glb::PackedScene::8950365385056890676::1782482538::1782482538::1::::<><><>0<>0<>ab26983d5bf70d36e71909d11a84e94b<>res://.godot/imported/paris.glb-96255bac5ce3803f0e5b48797f650f55.scn::
+rumeur.glb::PackedScene::4845771943022254306::1782482538::1782482538::1::::<><><>0<>0<>4b2e5d1d6cf513e72636c6f847bcd75f<>res://.godot/imported/rumeur.glb-32ea49f425169dfe0235be4c5e089781.scn::
+sabotage.glb::PackedScene::2046160473864729659::1782482538::1782482538::1::::<><><>0<>0<>3124ca0e2b424b82cc08460cefc22ee8<>res://.godot/imported/sabotage.glb-0c01de869ee43dfe2b9fc5f366cf26d5.scn::
+stimulant.glb::PackedScene::3879138117743673135::1782482538::1782482538::1::::<><><>0<>0<>f3b7d12e612d2aa0c6a29e4ad5ceff1e<>res://.godot/imported/stimulant.glb-d2ffcaf44b7895ac996c302efed500cb.scn::
+::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/::1782483385
 PBX Logo.png::CompressedTexture2D::8460429207374587177::1781962505::1781962507::1::::<><><>0<>0<>23ed7fac304df34ed51b63852193998d<>res://.godot/imported/PBX Logo.png-62abcbbcd7ff78e33aa9f479149b818a.ctex::
 ReadMe.txt::TextFile::-1::1781962505::0::1::::<><><>0<>0<><>::
 table.glb::PackedScene::1500898355423527684::1781962958::1781962959::1::::<><><>0<>0<>98481bbd3a474b7081a1603b3c15aaef<>res://.godot/imported/table.glb-6e571d4e10d97eb56333f0772753d1a1.scn::uid://bty03twrnorx4::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/table_Madera1.jpg
@@ -187,7 +194,7 @@ rug0.fbx::PackedScene::5862774811778930641::1781962505::1781962539::1::::<><><>0
 rug1.fbx::PackedScene::7994222264953236926::1781962505::1781962539::1::::<><><>0<>0<>e4eb0a2de0b5f894794f67f7bd158189<>res://.godot/imported/rug1.fbx-bd05feaae16184e2cdc4fd55b14e142f.scn::uid://cpj01di7h36v1::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/rug1_texture.png
 rug2.fbx::PackedScene::3612698565484530378::1781962505::1781962540::1::::<><><>0<>0<>1db2366c475051c368d321bf5a411a71<>res://.godot/imported/rug2.fbx-23aba469c1355e6ff634bc42806c8f64.scn::uid://d36pnmbuiv20g::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/rug2_texture.png
 statue.fbx::PackedScene::2184672819462608578::1781962505::1781962540::1::::<><><>0<>0<>c221ce23a3b50f472abf6814f796b9cb<>res://.godot/imported/statue.fbx-8347f79856e3ee356c22ada610d60fd7.scn::uid://cw8dqh2rm0b0b::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/statue_texture.jpg
-::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Furniture/::1781962541
+::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Furniture/::1782483278
 bath.fbx::PackedScene::3775855961515802139::1781962505::1781962540::1::::<><><>0<>0<>b6dfaba942c86d2da6ea5e0e80572d0d<>res://.godot/imported/bath.fbx-4e59c03d93d2ead3d4ee88471e450c78.scn::uid://dschi7phg5nm5::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/bath_texture.png
 bed.fbx::PackedScene::4687465945324848390::1781962505::1781962540::1::::<><><>0<>0<>34f1773f369818d09879f66a0badf4f3<>res://.godot/imported/bed.fbx-891f40be6a737f2801e41462e412075c.scn::uid://7te8dnkvtjlb::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/bed_texture.png
 bookcase.fbx::PackedScene::6081734546961201552::1781962505::1781962540::1::::<><><>0<>0<>e6d2659c080165f9ac2ddf2257db566e<>res://.godot/imported/bookcase.fbx-41717092d7c61cbf56678d98467da1a8.scn::uid://bx1ac4d4ga8r1::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/bookcase_texture.png
@@ -204,6 +211,7 @@ toilet.fbx::PackedScene::8900428761983443334::1781962505::1781962536::1::::<><><
 toilet_lid.fbx::PackedScene::5440689747624865041::1781962505::1781962537::1::::<><><>0<>0<>f23313184abd6d636d17f03ba90cfc70<>res://.godot/imported/toilet_lid.fbx-a535a477de441c0fb50b66aabfb8cdf4.scn::uid://b4quvedg4tmbn::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/toilet_texture.png
 toilet_w_lid.fbx::PackedScene::8232243112631418214::1781962505::1781962537::1::::<><><>0<>0<>7c24929ce1f1cc958897dd8aaeba4c83<>res://.godot/imported/toilet_w_lid.fbx-7b74a185f255ea445d45451b82490dde.scn::uid://b4quvedg4tmbn::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/toilet_texture.png
 toilet_w_liddown.fbx::PackedScene::4540458549596947163::1781962505::1781962537::1::::<><><>0<>0<>bf900720fc32221b0287c3b3e6ecf96f<>res://.godot/imported/toilet_w_liddown.fbx-435e3e214e4d258ea9c4a9fba198efae.scn::uid://b4quvedg4tmbn::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/toilet_texture.png
+Untitled.glb::PackedScene::2828754315795118401::1782483278::1782483269::1::::<><><>0<>0<>890c1be8005736efecdf4abef232371c<>res://.godot/imported/Untitled.glb-da6063af38ee739af689049b2629c02d.scn::
 wardrobe.fbx::PackedScene::4771649846080507277::1781962505::1781962537::1::::<><><>0<>0<>965228e47fdf3848be95f25a20e1bc92<>res://.godot/imported/wardrobe.fbx-81a017e6e2e6ca3ef3194824ddb76a33.scn::uid://6y12mnnpyld4::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/wardrobe_texture.png
 ::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Items/::1781962570
 book0.fbx::PackedScene::8839383624064467193::1781962505::1781962537::1::::<><><>0<>0<>8374587d2df2cae3db7888e3d597cbc1<>res://.godot/imported/book0.fbx-b6e1b4e50157efaedb9f6a04feecd294.scn::uid://dlkr2a4nttckk::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/book0_texture.png
@@ -841,7 +849,7 @@ window_wall8.fbx::PackedScene::2213367144768717753::1781962505::1781962528::1:::
 BebasNeue-Regular.ttf::FontFile::4687631797974383765::1781638125::1781962010::1::::<><><>0<>0<>3a4702febfa89fc8b58bd4ce8b320f0a<>res://.godot/imported/BebasNeue-Regular.ttf-dc4a04f9d429abde2dfa730507c94839.fontdata::
 SpecialElite.ttf::FontFile::251749465098407746::1781638146::1781962010::1::::<><><>0<>0<>dab5a376c5c7666ab063c8c5aea5275a<>res://.godot/imported/SpecialElite.ttf-fe9170926e452a88f3eddd1a10d65b18.fontdata::
 ::res://ressources/::1781004505
-::res://scenes/::1782220000
+::res://scenes/::1782483140
 btn_launch_frame.gd::GDScript::8193012130148426542::1781983267::0::1::::<>Control<><>0<>0<><>::
 deadline.gd::GDScript::4064346738359377025::1781442411::0::1::::<>Control<><>0<>0<><>::
 deadline.tscn::PackedScene::2375599288365679034::1781442673::0::1::::<><><>0<>0<><>::uid://bx52gxx2fp2fd::::res://scenes/deadline.gd
@@ -854,11 +862,11 @@ oval_track.gd::GDScript::5363805295867508169::1781989323::0::1::::OvalTrack<>Nod
 race_track.tscn::PackedScene::6961842621181714505::1781976013::0::1::::<><><>0<>0<><>::uid://ciojdbsd3bear::::res://scenes/oval_track.gd
 shop.gd::GDScript::435379685401950498::1781621401::0::1::::<>Control<><>0<>0<><>::
 shop.tscn::PackedScene::6763835081995472064::1781625501::0::1::::<><><>0<>0<><>::uid://gg5v0vbsg0h7::::res://scenes/shop.gd
-world.tscn::PackedScene::2377434920935610292::1782220000::0::1::::<><><>0<>0<><>::uid://cbuvlbnbwmv4x::::res://scripts/gamecamera.gd<>uid://chpi4aqkt6dn0::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/wall_1.glb<>uid://byhs1sdc1qc80::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/floor0.glb<>uid://vnbtut4g4837::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/table.glb<>uid://c5cpl2fyyojq2::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/ceiling2.fbx<>uid://corbidfwrabhe::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/pillar0_1-4.fbx<>uid://ckbuabaty3tqm::::res://assets/carte.tscn<>uid://d3k8po1jdxi71::::res://scenes/main.tscn<>uid://hdu0ryrrg88w::::res://assets/statut.glb<>uid://babjtfjcf225r::::res://scenes/debug.gd
-::res://scripts/::1782219982
+world.tscn::PackedScene::2377434920935610292::1782483140::0::1::::<><><>0<>0<><>::uid://cbuvlbnbwmv4x::::res://scripts/gamecamera.gd<>uid://chpi4aqkt6dn0::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/wall_1.glb<>uid://byhs1sdc1qc80::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/floor0.glb<>uid://vnbtut4g4837::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/table.glb<>uid://c5cpl2fyyojq2::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/ceiling2.fbx<>uid://corbidfwrabhe::::res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/pillar0_1-4.fbx<>uid://ckbuabaty3tqm::::res://assets/carte.tscn<>uid://d3k8po1jdxi71::::res://scenes/main.tscn<>uid://hdu0ryrrg88w::::res://assets/statut.glb<>uid://babjtfjcf225r::::res://scenes/debug.gd
+::res://scripts/::1782231628
 bookmaker.gd::GDScript::8735504875411433824::1782204494::0::1::::Bookmaker<>RefCounted<><>0<>0<><>::
 btn_point.gd::GDScript::2919568081842135143::1781980486::0::1::::<>Control<><>0<>0<><>::
-gamecamera.gd::GDScript::4885612539367618917::1782219982::0::1::::<>Node3D<><>0<>0<><>::
+gamecamera.gd::GDScript::4885612539367618917::1782231628::0::1::::<>Node3D<><>0<>0<><>::
 gamestate.gd::GDScript::3670286108920628322::1781443000::0::1::::<>Node<><>0<>0<><>::
 horse.gd::GDScript::2382358104208459433::1781440307::0::1::::Horse<>RefCounted<><>0<>0<><>::
 race_resolver.gd::GDScript::8494527517014574290::1781442856::0::1::::RaceResolver<>RefCounted<><>0<>0<><>::

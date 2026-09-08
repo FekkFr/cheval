@@ -348,6 +348,20 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "RETOUR"
 
+[node name="ModifierList" type="VBoxContainer" parent="CanvasLayer/PionPopup" unique_id=1714277241]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BtnMod1" type="Button" parent="CanvasLayer/PionPopup/ModifierList" unique_id=641275524]
+layout_mode = 2
+
+[node name="BtnMod2" type="Button" parent="CanvasLayer/PionPopup/ModifierList" unique_id=1084459472]
+layout_mode = 2
+
+[node name="BtnMod3" type="Button" parent="CanvasLayer/PionPopup/ModifierList" unique_id=2082237061]
+layout_mode = 2
+
 [node name="BtnShop" type="Button" parent="CanvasLayer" unique_id=1122883896]
 custom_minimum_size = Vector2(71, 31)
 anchors_preset = 7

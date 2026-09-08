@@ -26,6 +26,7 @@ extends Node3D
 	$Room/Boutique/Emplacement3
 ]
 
+var _selected_mod: ModifierBase = null
 var _shop_modifiers = []
 var shop_cam_rot = Vector3(deg_to_rad(-11.3), deg_to_rad(90.0), deg_to_rad(0.0))
 var in_shop = false
@@ -169,10 +170,28 @@ func _on_shop_clicked(cam, event, position, normal, shape_idx, index: int):
 	var tween_bg = create_tween()
 	tween_bg.tween_property(pion_bg, "color:a", 0.35, 0.3)
 	await tween.finished
+	
+	var pas_assez_tickets = ModifierManager.tickets < mod.cost
+	var slots_pleins = ModifierManager.active_modifiers.size() >= ModifierManager.max_slots
+	var deja_actif = false
+	for active in ModifierManager.active_modifiers:
+		if active.mod_id == mod.mod_id:
+			deja_actif = true
+			break
+
+	btn_confirm.disabled = pas_assez_tickets or slots_pleins or deja_actif
+
+	if pas_assez_tickets:
+		pion_label.text = mod.mod_name + "\n🎟 " + str(mod.cost) + " (manque tickets)"
+	elif slots_pleins:
+		pion_label.text = mod.mod_name + "\nSlots pleins"
+	elif deja_actif:
+		pion_label.text = mod.mod_name + "\nDéjà actif"
+	else:
+		pion_label.text = mod.mod_name + "\n🎟 " + str(mod.cost)
 
 	pion_label.text = mod.mod_name
 	btn_confirm.visible = true
-	btn_confirm.disabled = ModifierManager.tickets < mod.cost
 	pion_popup.visible = true
 
 func _on_confirm_shop():
@@ -205,7 +224,6 @@ func _on_confirm_shop():
 	_pending_shop_index = -1
 	_pending_shop_node = null
 
-# ── Émission pions (Circle/Circle_001/Icosphere) ──
 func _set_emission(pion_node, enabled: bool):
 	var mesh_names = ["Circle", "Circle_001", "Icosphere"]
 	for mesh_name in mesh_names:
@@ -236,7 +254,18 @@ func _set_emission_boite(boite_node, enabled: bool):
 						mat.emission_energy_multiplier = 0.8
 					child.set_surface_override_material(surface_idx, mat)
 
-# ── Pions ─────────────────────────────────────────
+func _on_mod_selected(mod: ModifierBase, btn: Button):
+	print("Mod sélectionné : ", mod.mod_name)
+	print("btn_confirm.disabled avant : ", btn_confirm.disabled)
+	_selected_mod = mod
+	btn_confirm.disabled = false
+	print("btn_confirm.disabled après : ", btn_confirm.disabled)
+	
+	var mod_list = $CanvasLayer/PionPopup/ModifierList
+	for child in mod_list.get_children():
+		child.add_theme_color_override("font_color", Color("#736546ff"))
+	btn.add_theme_color_override("font_color", Color("#c8860a"))
+
 func _on_pion_clicked(cam, event, position, normal, shape_idx, index: int):
 	if not event is InputEventMouseButton or not event.pressed:
 		return
@@ -264,8 +293,27 @@ func _on_pion_clicked(cam, event, position, normal, shape_idx, index: int):
 	await tween.finished
 
 	pion_label.text = horse.horse_name
-	pion_popup.visible = true
+	
+	var mod_list = $CanvasLayer/PionPopup/ModifierList
+	for child in mod_list.get_children():
+		child.queue_free()
+	_selected_mod = null
+	
+	var mods_waiting = []
+	for mod in ModifierManager.active_modifiers:
+		if mod.needs_target and mod.target_index == -1:
+			mods_waiting.append(mod)
+	
+	if mods_waiting.size() == 0:
+		btn_confirm.visible = false
+	else:
+		for mod in mods_waiting:
+			var btn = Button.new()
+			btn.text = mod.mod_name + " - " + mod.description
+			btn.pressed.connect(_on_mod_selected.bind(mod, btn))
+			mod_list.add_child(btn)
 	btn_confirm.visible = true
+	pion_popup.visible = true
 	btn_confirm.disabled = main_ui.waiting_for_target == null
 
 func _on_cancel_target():
@@ -284,7 +332,7 @@ func _on_cancel_target():
 		var original_pos = _shop_original_positions[_pending_shop_index]
 		var tween = create_tween()
 		tween.set_parallel(true)
-		tween.tween_property(_pending_shop_node, "global_position", original_pos, 0.3).set_trans(Tween.TRANS_CUBIC)
+		tween.tween_property(_pending_shop_node, "position", original_pos, 0.3).set_trans(Tween.TRANS_CUBIC)
 		tween.tween_property(_pending_shop_node, "scale", Vector3(1.0, 1.0, 1.0), 0.3).set_trans(Tween.TRANS_CUBIC)
 		var boite_name = _boite_names.get(_shop_modifiers[_pending_shop_index].mod_id, "")
 		if boite_name != "":
@@ -302,8 +350,35 @@ func _on_cancel_target():
 	pion_popup.visible = false
 
 func _on_confirm_pressed():
+	print("CONFIRM PRESSED - shop:", _pending_shop_index, " target:", _pending_target_index, " mod:", _selected_mod)
 	if _pending_shop_index != -1:
 		_on_confirm_shop()
+	elif _pending_target_index != -1 and _selected_mod != null:
+		# Appliquer le mod sélectionné au cheval ciblé
+		_selected_mod.target_index = _pending_target_index
+		print("[CIBLAGE] ", _selected_mod.mod_name, " → ", GameState.current_horses[_pending_target_index].horse_name)
+		_selected_mod = null
+
+		# Vérifier s'il reste des mods en attente
+		var mods_restants = []
+		for mod in ModifierManager.active_modifiers:
+			if mod.needs_target and mod.target_index == -1:
+				mods_restants.append(mod)
+
+		if mods_restants.size() > 0:
+			# Rafraîchir la liste sans fermer le popup
+			var mod_list = $CanvasLayer/PionPopup/ModifierList
+			for child in mod_list.get_children():
+				child.queue_free()
+			for mod in mods_restants:
+				var btn = Button.new()
+				btn.text = mod.mod_name
+				btn.pressed.connect(_on_mod_selected.bind(mod, btn))
+				mod_list.add_child(btn)
+			btn_confirm.disabled = true  # reset jusqu'à nouvelle sélection
+		else:
+			# Plus rien en attente — fermer le popup
+			_on_cancel_target()
 	elif _pending_target_index != -1:
 		_on_confirm_target()
 
@@ -410,3 +485,5 @@ func _ready():
 		area.input_event.connect(_on_shop_clicked.bind(i))
 	for emplacement in emplacements:
 		_shop_original_positions.append(emplacement.position)
+		
+	GameState.race_finished.connect(_refresh_shop)

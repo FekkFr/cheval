@@ -11,6 +11,8 @@ enum State {
 	GAME_OVER
 }
 
+signal race_finished
+
 var state: State = State.MENU
 var week: int = 0
 var race_in_week: int = 1
@@ -61,6 +63,7 @@ func next_race() -> void:
 		race_in_week = 1
 		week += 1
 		change_state(State.DEADLINE)
+	emit_signal("race_finished")
 
 func trigger_game_over(reason: String) -> void:
 	game_over_reason = reason

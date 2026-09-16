@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhexxqokom8gj"
-path.s3tc="res://.godot/imported/chandelier_texture.png-59f804fb0b586c884edc8b9ba9a17cbb.s3tc.ctex"
+path.s3tc="res://.godot/imported/chandelier_texture.png-65e7897eb15e8b0730e2b928f9267edd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/chandelier_texture.png"
-dest_files=["res://.godot/imported/chandelier_texture.png-59f804fb0b586c884edc8b9ba9a17cbb.s3tc.ctex"]
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Textures/chandelier_texture.png"
+dest_files=["res://.godot/imported/chandelier_texture.png-65e7897eb15e8b0730e2b928f9267edd.s3tc.ctex"]
 
 [params]
 

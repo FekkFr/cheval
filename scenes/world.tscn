@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://d0rvhfa1dgnc3" path="res://assets/objets/paris.glb" id="12_xo05s"]
 [ext_resource type="PackedScene" uid="uid://cbblfkiq1jcdm" path="res://assets/objets/rumeur.glb" id="13_dss4m"]
 [ext_resource type="PackedScene" uid="uid://4ff71pj05w1p" path="res://assets/objets/sabotage.glb" id="14_7t5mc"]
+[ext_resource type="PackedScene" uid="uid://drjkadoxif5uc" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/study_desk.glb" id="15_stdydsk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_elr2n"]
 size = Vector3(0.6130371, 0.6101074, 0.46350098)
@@ -38,7 +39,7 @@ spot_angle = 31.75
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1475279157]
 transform = Transform3D(0.7927941, -2.6641617e-08, 0.6094894, -0.6094894, -3.465413e-08, 0.7927942, 5.2312437e-16, -1, -4.371138e-08, -0.6095648, 6.3283463, 0)
-light_color = Color(1, 0.6666667, 0.2, 1)
+light_color = Color(0.5334693, 0.81856185, 0.69662374, 1)
 light_energy = 21.97
 shadow_bias = 0.5
 spot_range = 7.59
@@ -68,6 +69,10 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 6)
 
 [node name="table" parent="Room/Furnitures" unique_id=1461178710 instance=ExtResource("3_71j4m")]
 transform = Transform3D(1.4999368, -0.013760026, 0, 0.013760026, 1.4999368, 0, 0, 0, 1.5, 0.03875172, 0, 0)
+
+[node name="BureauSupplementaire" parent="Room/Furnitures" unique_id=1768715338 instance=ExtResource("15_stdydsk")]
+transform = Transform3D(-0.8979726, 0, -0.44005144, 0, 1, 0, 0.44005144, 0, -0.8979726, 1.1123018, 1.6770651, 1.8961638)
+visible = false
 
 [node name="Walls" type="Node" parent="Room" unique_id=920003869]
 
@@ -179,6 +184,12 @@ visible = false
 [node name="paris" parent="Room/Boutique/Emplacement1" unique_id=180487222 instance=ExtResource("12_xo05s")]
 visible = false
 
+[node name="sabodiscret" parent="Room/Boutique/Emplacement1" unique_id=1857833360 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="deskupgrade" parent="Room/Boutique/Emplacement1" unique_id=1867189910 instance=ExtResource("14_7t5mc")]
+visible = false
+
 [node name="ClickArea" type="Area3D" parent="Room/Boutique/Emplacement1" unique_id=676546337]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Boutique/Emplacement1/ClickArea" unique_id=1247986693]
@@ -198,6 +209,12 @@ visible = false
 visible = false
 
 [node name="paris" parent="Room/Boutique/Emplacement2" unique_id=1366341311 instance=ExtResource("12_xo05s")]
+visible = false
+
+[node name="sabodiscret" parent="Room/Boutique/Emplacement2" unique_id=459639746 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="deskupgrade" parent="Room/Boutique/Emplacement2" unique_id=1534474887 instance=ExtResource("14_7t5mc")]
 visible = false
 
 [node name="ClickArea" type="Area3D" parent="Room/Boutique/Emplacement2" unique_id=1533836120]
@@ -221,11 +238,104 @@ visible = false
 [node name="paris" parent="Room/Boutique/Emplacement3" unique_id=802645212 instance=ExtResource("12_xo05s")]
 visible = false
 
+[node name="sabodiscret" parent="Room/Boutique/Emplacement3" unique_id=1322832546 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="deskupgrade" parent="Room/Boutique/Emplacement3" unique_id=2102110928 instance=ExtResource("14_7t5mc")]
+visible = false
+
 [node name="ClickArea" type="Area3D" parent="Room/Boutique/Emplacement3" unique_id=359783762]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Boutique/Emplacement3/ClickArea" unique_id=383673117]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04058838, 0.002105713)
 shape = SubResource("BoxShape3D_d5qys")
+
+[node name="Bureau" type="Node3D" parent="Room" unique_id=1473158606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.9, 0)
+
+[node name="Slot1" type="Node3D" parent="Room/Bureau" unique_id=339081663]
+transform = Transform3D(0.809017, 0, 0.58778524, 0, 1, 0, -0.58778524, 0, 0.809017, 0.6081454, 1.7906226, -1.9065391)
+
+[node name="rumeur" parent="Room/Bureau/Slot1" unique_id=690620971 instance=ExtResource("13_dss4m")]
+visible = false
+
+[node name="sabotage" parent="Room/Bureau/Slot1" unique_id=625901256 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="stimulant" parent="Room/Bureau/Slot1" unique_id=579341423 instance=ExtResource("10_xo05s")]
+visible = false
+
+[node name="paris" parent="Room/Bureau/Slot1" unique_id=399655412 instance=ExtResource("12_xo05s")]
+visible = false
+
+[node name="sabodiscret" parent="Room/Bureau/Slot1" unique_id=1681559892 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="deskupgrade" parent="Room/Bureau/Slot1" unique_id=1991337701 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="Slot2" type="Node3D" parent="Room/Bureau" unique_id=153710184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0747573, 1.7906226, -1.5413646)
+
+[node name="rumeur" parent="Room/Bureau/Slot2" unique_id=320106707 instance=ExtResource("13_dss4m")]
+visible = false
+
+[node name="sabotage" parent="Room/Bureau/Slot2" unique_id=1553201078 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="stimulant" parent="Room/Bureau/Slot2" unique_id=1690571865 instance=ExtResource("10_xo05s")]
+visible = false
+
+[node name="paris" parent="Room/Bureau/Slot2" unique_id=2015941032 instance=ExtResource("12_xo05s")]
+visible = false
+
+[node name="sabodiscret" parent="Room/Bureau/Slot2" unique_id=1271165722 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="deskupgrade" parent="Room/Bureau/Slot2" unique_id=2107531986 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="Slot3" type="Node3D" parent="Room/Bureau" unique_id=1692467581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6081454, 1.7906226, 1.7802995)
+
+[node name="rumeur" parent="Room/Bureau/Slot3" unique_id=286699713 instance=ExtResource("13_dss4m")]
+visible = false
+
+[node name="sabotage" parent="Room/Bureau/Slot3" unique_id=1368073012 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="stimulant" parent="Room/Bureau/Slot3" unique_id=1006070220 instance=ExtResource("10_xo05s")]
+visible = false
+
+[node name="paris" parent="Room/Bureau/Slot3" unique_id=168252793 instance=ExtResource("12_xo05s")]
+visible = false
+
+[node name="sabodiscret" parent="Room/Bureau/Slot3" unique_id=163989047 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="deskupgrade" parent="Room/Bureau/Slot3" unique_id=880222519 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="Slot4" type="Node3D" parent="Room/Bureau" unique_id=1902376145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5370324, 1.7906226, 1.6546973)
+
+[node name="rumeur" parent="Room/Bureau/Slot4" unique_id=696424036 instance=ExtResource("13_dss4m")]
+visible = false
+
+[node name="sabotage" parent="Room/Bureau/Slot4" unique_id=1595710737 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="stimulant" parent="Room/Bureau/Slot4" unique_id=1944186457 instance=ExtResource("10_xo05s")]
+visible = false
+
+[node name="paris" parent="Room/Bureau/Slot4" unique_id=545305056 instance=ExtResource("12_xo05s")]
+visible = false
+
+[node name="sabodiscret" parent="Room/Bureau/Slot4" unique_id=435396520 instance=ExtResource("14_7t5mc")]
+visible = false
+
+[node name="deskupgrade" parent="Room/Bureau/Slot4" unique_id=205208673 instance=ExtResource("14_7t5mc")]
+visible = false
 
 [node name="Carte" parent="." unique_id=619825586 instance=ExtResource("6_qfnet")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.742, 4.06, 0)

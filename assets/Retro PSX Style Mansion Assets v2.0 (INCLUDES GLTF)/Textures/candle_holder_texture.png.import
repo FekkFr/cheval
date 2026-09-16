@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba77b85o1jrml"
-path.s3tc="res://.godot/imported/candle_holder_texture.png-459c5ab64fdc964516565a24322177ef.s3tc.ctex"
+path.s3tc="res://.godot/imported/candle_holder_texture.png-5376c85a1b9cb31100c8f37af5665f0b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/candle_holder_texture.png"
-dest_files=["res://.godot/imported/candle_holder_texture.png-459c5ab64fdc964516565a24322177ef.s3tc.ctex"]
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Textures/candle_holder_texture.png"
+dest_files=["res://.godot/imported/candle_holder_texture.png-5376c85a1b9cb31100c8f37af5665f0b.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,6 @@
 # Autoload sous le nom "AchievementManager"
 extends Node
 
-# ── Achievements disponibles ──────────────────────
-# Chaque achievement a : id, description, condition, modificateur débloqué
 const ACHIEVEMENTS = [
 	{
 		"id": "survivor_3",
@@ -34,16 +32,20 @@ const ACHIEVEMENTS = [
 		"name": "Parieur",
 		"desc": "Gagner 5 paris personnels",
 		"unlocks": "mod_double_mise"
+	},
+	{
+		"id" : "first_win",
+		"name" : "Gagnant",
+		"desc" : "Gagner sa première partie",
+		"unlocks" : "mod_difficile" #Mod difficile
 	}
 ]
 
-# ── Données persistantes ──────────────────────────
 var unlocked_achievements: Array = []    # ids des achievements obtenus
 var unlocked_modifiers: Array = []       # ids des modificateurs débloqués
 var total_tickets_earned: int = 0        # tickets gagnés au total (tous runs)
 var total_pari_wins: int = 0             # paris gagnés au total
 
-# ── Sauvegarde ────────────────────────────────────
 const SAVE_PATH = "user://achievements.json"
 
 func _ready():
@@ -63,8 +65,7 @@ func save_data() -> void:
 
 func load_data() -> void:
 	if not FileAccess.file_exists(SAVE_PATH):
-		# Premier lancement - débloquer les mods de base
-		unlocked_modifiers = ["mod_sabotage", "mod_pari_perso", "mod_stimulant", "mod_rumeur"]
+		unlocked_modifiers = ["mod_sabotage", "mod_pari_perso", "mod_stimulant", "mod_rumeur", "mod_sabotage_discret", "mod_deskupgrade"]
 		return
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file:
@@ -75,8 +76,15 @@ func load_data() -> void:
 			unlocked_modifiers = data.get("unlocked_modifiers", ["mod_sabotage", "mod_pari_perso"])
 			total_tickets_earned = data.get("total_tickets_earned", 0)
 			total_pari_wins = data.get("total_pari_wins", 0)
+	var base_mods = ["mod_sabotage", "mod_pari_perso", "mod_stimulant", "mod_rumeur", "mod_sabotage_discret", "mod_deskupgrade"]
+	var migrated = false
+	for m in base_mods:
+		if not m in unlocked_modifiers:
+			unlocked_modifiers.append(m)
+			migrated = true
+	if migrated:
+		save_data()
 
-# ── Vérifier les achievements après chaque événement ─
 func check_achievements(event: String, value: float = 0) -> Array:
 	var newly_unlocked = []
 
@@ -103,7 +111,6 @@ func check_achievements(event: String, value: float = 0) -> Array:
 
 func _unlock(achievement_id: String, newly_unlocked: Array) -> void:
 	unlocked_achievements.append(achievement_id)
-	# Trouver le modificateur à débloquer
 	for ach in ACHIEVEMENTS:
 		if ach["id"] == achievement_id:
 			var mod_id = ach["unlocks"]
@@ -112,6 +119,5 @@ func _unlock(achievement_id: String, newly_unlocked: Array) -> void:
 				newly_unlocked.append({"achievement": ach["name"], "mod": mod_id})
 			break
 
-# ── Vérifier si un mod est débloqué ──────────────
 func is_modifier_unlocked(mod_id: String) -> bool:
 	return mod_id in unlocked_modifiers

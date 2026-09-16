@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://i4fuyod85org"
-path.s3tc="res://.godot/imported/pillar0_texture.png-d1abe72ec58f109f809c24b3f68b0e02.s3tc.ctex"
+path.s3tc="res://.godot/imported/pillar0_texture.png-6911517d32b661245824cfe4488eb912.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/pillar0_texture.png"
-dest_files=["res://.godot/imported/pillar0_texture.png-d1abe72ec58f109f809c24b3f68b0e02.s3tc.ctex"]
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Textures/pillar0_texture.png"
+dest_files=["res://.godot/imported/pillar0_texture.png-6911517d32b661245824cfe4488eb912.s3tc.ctex"]
 
 [params]
 

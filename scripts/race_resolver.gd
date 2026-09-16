@@ -19,7 +19,7 @@ func resolve(horses: Array) -> Array:
 		print(i+1, ". ", sorted[i].horse_name, " (score: ", sorted[i].final_score, ")")
 
 	return sorted
-# Générer 4 chevaux aléatoires pour une course
+
 static func generate_field() -> Array:
 	var names = [
 		"Midnight Prince", "Black Friday", "Iron Duke", "Lucky Streak",

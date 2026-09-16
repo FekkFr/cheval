@@ -18,4 +18,4 @@ func _ready():
 
 func _on_restart():
 	GameState.reset()
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/world.tscn")

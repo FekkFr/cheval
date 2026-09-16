@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://6y12mnnpyld4"
-path.s3tc="res://.godot/imported/wardrobe_texture.png-64cc5fabfbf46ab91e28939122cad506.s3tc.ctex"
+path.s3tc="res://.godot/imported/wardrobe_texture.png-17a9e42ac5e1bfc43fba9eb193784058.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/wardrobe_texture.png"
-dest_files=["res://.godot/imported/wardrobe_texture.png-64cc5fabfbf46ab91e28939122cad506.s3tc.ctex"]
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Textures/wardrobe_texture.png"
+dest_files=["res://.godot/imported/wardrobe_texture.png-17a9e42ac5e1bfc43fba9eb193784058.s3tc.ctex"]
 
 [params]
 

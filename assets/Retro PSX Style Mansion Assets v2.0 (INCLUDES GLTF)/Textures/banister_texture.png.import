@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bstjnhjs8ocp0"
-path.s3tc="res://.godot/imported/banister_texture.png-642fe8f048c0c10cd0451d00957db03b.s3tc.ctex"
+path.s3tc="res://.godot/imported/banister_texture.png-ab395bbac085d49975857ed4ccaa0ebf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/banister_texture.png"
-dest_files=["res://.godot/imported/banister_texture.png-642fe8f048c0c10cd0451d00957db03b.s3tc.ctex"]
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Textures/banister_texture.png"
+dest_files=["res://.godot/imported/banister_texture.png-ab395bbac085d49975857ed4ccaa0ebf.s3tc.ctex"]
 
 [params]
 

@@ -7,6 +7,9 @@ extends Control
 @onready var label_tickets = $Layout/HUD/LabelTickets
 @onready var btn_shop = $Layout/HUD/BtnShop
 @onready var label_payment = $Layout/HUD/LabelPayment
+@onready var panel_suspicion = $SuspicionPanel
+@onready var label_suspicion = $SuspicionPanel/VBox/LabelSuspicion
+@onready var bar_suspicion = $SuspicionPanel/VBox/BarSuspicion
 @onready var bars = [
 	$Layout/RaceBar/ProgressBar1,
 	$Layout/RaceBar/ProgressBar2,
@@ -65,6 +68,60 @@ func _style_horse_names():
 			label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.8))
 			label.add_theme_constant_override("shadow_offset_x", 2)
 			label.add_theme_constant_override("shadow_offset_y", 2)
+# ── Suspicion ────────────────────────────────────
+func _style_suspicion_gauge():
+	var panel_style = StyleBoxFlat.new()
+	panel_style.bg_color = Color(0.04, 0.03, 0.02, 0.85)
+	panel_style.corner_radius_top_left = 8
+	panel_style.corner_radius_top_right = 8
+	panel_style.corner_radius_bottom_left = 8
+	panel_style.corner_radius_bottom_right = 8
+	panel_style.content_margin_left = 12
+	panel_style.content_margin_right = 12
+	panel_style.content_margin_top = 8
+	panel_style.content_margin_bottom = 8
+	panel_suspicion.add_theme_stylebox_override("panel", panel_style)
+
+	var font = load("res://fonts/SpecialElite.ttf")
+	if font:
+		label_suspicion.add_theme_font_override("font", font)
+		label_suspicion.add_theme_font_size_override("font_size", 16)
+	label_suspicion.add_theme_color_override("font_color", Color("#e8d5b0"))
+
+	var bar_bg = StyleBoxFlat.new()
+	bar_bg.bg_color = Color(0.15, 0.1, 0.08, 0.9)
+	bar_bg.corner_radius_top_left = 4
+	bar_bg.corner_radius_top_right = 4
+	bar_bg.corner_radius_bottom_left = 4
+	bar_bg.corner_radius_bottom_right = 4
+	bar_suspicion.add_theme_stylebox_override("background", bar_bg)
+
+	var bar_fill = StyleBoxFlat.new()
+	bar_fill.bg_color = Color("#b0453f")
+	bar_fill.corner_radius_top_left = 4
+	bar_fill.corner_radius_top_right = 4
+	bar_fill.corner_radius_bottom_left = 4
+	bar_fill.corner_radius_bottom_right = 4
+	bar_suspicion.add_theme_stylebox_override("fill", bar_fill)
+
+func _refresh_suspicion():
+	bar_suspicion.value = GameState.suspicion
+	label_suspicion.text = "SUSPICION : " + str(int(GameState.suspicion)) + "%"
+
+func _on_suspicion_changed(_amount: float):
+	_refresh_suspicion()
+
+func _on_suspicion_fine(amount: float):
+	_refresh_suspicion()
+	var warning = Label.new()
+	add_child(warning)
+	warning.text = "⚠ AMENDE : -$" + str(int(amount))
+	warning.add_theme_color_override("font_color", Color("#e8544f"))
+	warning.add_theme_font_size_override("font_size", 20)
+	warning.position = panel_suspicion.position + Vector2(0, 55)
+	await get_tree().create_timer(2.5).timeout
+	warning.queue_free()
+
 func _style_launch_button():
 	var font = load("res://fonts/BebasNeue-Regular.ttf")
 	if font:
@@ -90,6 +147,10 @@ func _ready():
 	_new_race()
 	print("Après _new_race")
 	GameState.cash_changed.connect(_on_cash_changed)
+	GameState.suspicion_changed.connect(_on_suspicion_changed)
+	GameState.suspicion_fine.connect(_on_suspicion_fine)
+	_style_suspicion_gauge()
+	_refresh_suspicion()
 	btn_launch.pressed.connect(_on_launch_pressed)
 	print("BOUTON CONNECTÉ")
 	btn_shop.pressed.connect(_on_shop_pressed)
@@ -115,6 +176,7 @@ func _enable_horse_targeting(enabled: bool) -> void:
 func _on_horse_targeted(index: int) -> void:
 	if waiting_for_target == null: return
 	waiting_for_target.target_index = index
+	ModifierManager.mark_modifier_used(waiting_for_target)
 	var horse = GameState.current_horses[index]
 	print("[CIBLAGE] ", waiting_for_target.mod_name, " → ", horse.horse_name)
 	waiting_for_target = null

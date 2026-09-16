@@ -8,12 +8,9 @@ func _init():
 	mod_name = "Pari Personnel"
 	description = "Mise jusqu'à 30% de ta caisse sur un cheval pour cette course."
 	cost = 1
-	duration = 1  # une seule course
+	duration = 1 
 	icon = "🎰"
 	unlocked_by_default = true
 
-# La logique du pari est gérée directement dans main.gd
-# Ce modificateur sert juste à l'afficher dans la boutique
-# et à vérifier s'il est actif
 func on_after_race(profit: float, winner) -> float:
 	return profit  # la logique est dans main.gd

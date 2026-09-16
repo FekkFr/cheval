@@ -15,12 +15,10 @@ func _init():
 
 func on_calculate_bets(odds: Dictionary) -> Dictionary:
 	if target_index < 0: return odds
-	# On a besoin du nom du cheval ciblé
+	# Nom du cheval
 	var horses = GameState.current_horses
 	if target_index >= horses.size(): return odds
 	var target_name = horses[target_index].horse_name
-	# Diviser la cote par 2 = les parieurs pensent qu'il est favori
-	# → ils misent 2× plus sur lui
 	var modified = odds.duplicate()
 	if target_name in modified:
 		modified[target_name] = maxf(modified[target_name] / 2.0, 1.1)

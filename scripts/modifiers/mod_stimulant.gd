@@ -7,7 +7,7 @@ func _init():
 	mod_name = "Stimulant"
 	description = "Booste un cheval de +25pts."
 	cost = 0
-	duration = 1  # dure 1 course
+	duration = 1 
 	icon = "💉"
 	unlocked_by_default = true
 	needs_target = true

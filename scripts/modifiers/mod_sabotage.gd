@@ -6,12 +6,13 @@ extends ModifierBase
 func _init():
 	mod_id = "mod_sabotage"
 	mod_name = "Sabotage"
-	description = "Réduit les chances d'un cheval de 20pts. Discret."
-	cost = 2
-	duration = 1  # dure 1 course
+	description = "Réduit les chances d'un cheval de 20pts."
+	cost = 1
+	duration = 1 
 	icon = "🔧"
 	unlocked_by_default = true
 	needs_target = true
+	suspicion_gain = randi_range(0,30) 
 
 func on_before_race(horses: Array) -> void:
 	if target_index < horses.size():

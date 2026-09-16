@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dve2mlrmvhwrn"
-path.s3tc="res://.godot/imported/stairbanister_texture.png-9d0d0d4e3437e5c582310d718921a186.s3tc.ctex"
+path.s3tc="res://.godot/imported/stairbanister_texture.png-a1f5f6589677d9b0bedc1b82ed69f8d8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/stairbanister_texture.png"
-dest_files=["res://.godot/imported/stairbanister_texture.png-9d0d0d4e3437e5c582310d718921a186.s3tc.ctex"]
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Textures/stairbanister_texture.png"
+dest_files=["res://.godot/imported/stairbanister_texture.png-a1f5f6589677d9b0bedc1b82ed69f8d8.s3tc.ctex"]
 
 [params]
 

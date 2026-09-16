@@ -14,4 +14,4 @@ func _ready():
 func _on_pay():
 	GameState.pay_debt()
 	if GameState.state != GameState.State.GAME_OVER:
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		get_tree().change_scene_to_file("res://scenes/world.tscn")

@@ -32,9 +32,6 @@ func suggest_odds(horses: Array) -> Dictionary:
 		odds[horse.horse_name] = lerp(8.0, 1.5, avg / 100.0)
 	return odds
 
-# ── Calcule un multiplicateur de pool selon l'écart entre cotes ──
-# Cotes plates (écart faible) → pool très réduit → quasi aucun profit possible.
-# Cotes très différenciées (vrai pari) → pool complet, voire bonus → vrai potentiel de gain.
 func _spread_multiplier(odds: Dictionary) -> float:
 	var values = odds.values()
 	var min_odd = values.min()
@@ -42,17 +39,13 @@ func _spread_multiplier(odds: Dictionary) -> float:
 	var spread = max_odd - min_odd
 
 	if spread <= MIN_SPREAD:
-		# Très peu de risque pris → pool réduit à 15% (quasi aucun profit possible)
 		return 0.15
 
 	if spread >= FULL_SPREAD:
-		# Vrai pari tranché → pool complet, légère prime pour la prise de risque
 		return 1.0
 
-	# Entre les deux : interpolation progressive
 	var t = (spread - MIN_SPREAD) / (FULL_SPREAD - MIN_SPREAD)
 	return lerp(0.15, 1.0, t)
 
-# Utile pour l'UI : donne le multiplicateur actuel, pour afficher un feedback au joueur
 func get_current_spread_multiplier(odds: Dictionary) -> float:
 	return _spread_multiplier(odds)

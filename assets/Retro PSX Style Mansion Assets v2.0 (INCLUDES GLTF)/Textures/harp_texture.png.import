@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di5yqu7frv42m"
-path.s3tc="res://.godot/imported/harp_texture.png-bd0958dbbc4e46d7c6b9de7595be859c.s3tc.ctex"
+path.s3tc="res://.godot/imported/harp_texture.png-b27e12a82272ff231002fb720bf9b957.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/harp_texture.png"
-dest_files=["res://.godot/imported/harp_texture.png-bd0958dbbc4e46d7c6b9de7595be859c.s3tc.ctex"]
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Textures/harp_texture.png"
+dest_files=["res://.godot/imported/harp_texture.png-b27e12a82272ff231002fb720bf9b957.s3tc.ctex"]
 
 [params]
 

@@ -1,6 +1,5 @@
 extends HSlider
 
-# Graine fixe par slider pour que le gribouillis reste stable tant que la valeur ne change pas
 var _sketch_seed = 0
 
 func _ready():
@@ -9,7 +8,6 @@ func _ready():
 	add_theme_stylebox_override("grabber_area", StyleBoxEmpty.new())
 	add_theme_stylebox_override("grabber_area_highlight", StyleBoxEmpty.new())
 
-	# Masque complètement l'icône native du curseur (le rond blanc par défaut)
 	var empty_icon = ImageTexture.new()
 	var img = Image.create(1, 1, false, Image.FORMAT_RGBA8)
 	img.fill(Color(0, 0, 0, 0))
@@ -26,21 +24,17 @@ func _draw():
 	var ratio = (value - min_value) / (max_value - min_value)
 	var filled_x = ratio * size.x
 
-	seed(_sketch_seed)  # même tirage à chaque redraw tant que la seed ne change pas
+	seed(_sketch_seed) 
 
-	# Toute la piste en gribouillis (fond, sur toute la largeur) — gris crayon à papier
 	_draw_sketchy_track(Vector2(0, track_y), size.x, Color(0.55, 0.55, 0.55, 0.5), 2.0, 3)
 
-	seed(_sketch_seed)  # reset pour que la partie remplie démarre avec le même motif de base
-	# Partie remplie, par-dessus, plus marquée
+	seed(_sketch_seed) 
 	if filled_x > 2.0:
 		_draw_sketchy_track(Vector2(0, track_y), filled_x, Color("#0a0705"), 3.0, 4)
 
 	seed(_sketch_seed + 1)
 	_draw_sketchy_circle(Vector2(filled_x, track_y), 7.0, Color("#0a0705"))
 
-# Dessine une ligne "crayonnée" composée de plusieurs petits segments tremblés,
-# avec quelques passes superposées comme un vrai coup de crayon répété.
 func _draw_sketchy_track(start: Vector2, length: float, color: Color, width: float, passes: int):
 	if length < 1.0:
 		return
@@ -56,7 +50,7 @@ func _draw_sketchy_track(start: Vector2, length: float, color: Color, width: flo
 
 		var line_color = color
 		if p > 0:
-			line_color = color * Color(1, 1, 1, 0.45)  # passes supplémentaires plus légères
+			line_color = color * Color(1, 1, 1, 0.45)  
 
 		for i in points.size() - 1:
 			draw_line(points[i], points[i + 1], line_color, width * (1.0 if p == 0 else 0.6))

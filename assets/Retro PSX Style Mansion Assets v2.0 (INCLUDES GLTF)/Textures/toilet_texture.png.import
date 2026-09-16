@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4quvedg4tmbn"
-path.s3tc="res://.godot/imported/toilet_texture.png-0927c667dec3bdc0ff0bbe574bf395b7.s3tc.ctex"
+path.s3tc="res://.godot/imported/toilet_texture.png-1f3b56218e9a8bb88efe2ea5cffd225c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/toilet_texture.png"
-dest_files=["res://.godot/imported/toilet_texture.png-0927c667dec3bdc0ff0bbe574bf395b7.s3tc.ctex"]
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Textures/toilet_texture.png"
+dest_files=["res://.godot/imported/toilet_texture.png-1f3b56218e9a8bb88efe2ea5cffd225c.s3tc.ctex"]
 
 [params]
 

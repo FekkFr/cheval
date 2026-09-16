@@ -8,7 +8,6 @@ var form: int
 var stamina: int
 var track_fit: int
 
-# Données internes
 var final_score: int = 0
 var modifiers: Array = []
 

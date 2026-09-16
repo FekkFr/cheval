@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://myr78yhjq15l"
-path.s3tc="res://.godot/imported/piano_texture.png-9b35ef03d7524bf51d0992ee2bf6d8e4.s3tc.ctex"
+path.s3tc="res://.godot/imported/piano_texture.png-a71c2133ff75c19710bd5f9e50e1a53e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/textures/piano_texture.png"
-dest_files=["res://.godot/imported/piano_texture.png-9b35ef03d7524bf51d0992ee2bf6d8e4.s3tc.ctex"]
+source_file="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Textures/piano_texture.png"
+dest_files=["res://.godot/imported/piano_texture.png-a71c2133ff75c19710bd5f9e50e1a53e.s3tc.ctex"]
 
 [params]
 

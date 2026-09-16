@@ -15,7 +15,9 @@ func _ready():
 
 # ── Génère 4 couloirs concentriques en forme de stade ──
 func _generate_stadium_lanes():
-	var center = Vector2(400, 300)
+	# Centré sur l'écran 1280x720 : RaceTrack est décalé de (160, 0) dans
+	# main.tscn, donc on vise (640-160, 360) pour un centre visuel à (640, 360).
+	var center = Vector2(480, 360)
 	var straight_length = 300.0
 	var base_radius_y = 120.0
 	var lane_spacing = 25.0

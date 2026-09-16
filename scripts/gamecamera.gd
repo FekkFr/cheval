@@ -1,45 +1,48 @@
-extends Node3D
-## Contrôleur principal de la pièce 3D (world.tscn).
+extends Control
+## Contrôleur principal de l'écran de la pièce (world.tscn), version 2D.
 ## Relie les entrées du joueur aux sous-systèmes dédiés :
 ##   - HudDisplay          → badges CAISSE / TRANCHE
-##   - MapCameraController → zoom sur la carte de paris
+##   - MapCameraController → transition vers la carte de paris (ex-zoom caméra)
 ##   - ShopManager         → boutique (objets à acheter)
 ##   - PionManager         → ciblage des chevaux (pions)
 ## et gère la popup de sélection, partagée entre la boutique et le ciblage.
 
-@onready var btn_shop = $CanvasLayer/BtnShop
-@onready var btn_back_shop = $CanvasLayer/BtnBackShop
-@onready var camera = $Camera3D
-@onready var main_ui = $CanvasLayer/Main
-@onready var btn_back = $CanvasLayer/BtnBack
-@onready var click_area = $Carte/Cube/ClickArea
-@onready var label_cash_world = $CanvasLayer/PanelMoney/VBoxMoney/LabelCashWorld
-@onready var label_tranche_world = $CanvasLayer/PanelMoney/VBoxMoney/LabelTrancheWorld
-@onready var panel_money = $CanvasLayer/PanelMoney
-@onready var pion_bg = $CanvasLayer/PionBg
-@onready var pion_popup = $CanvasLayer/PionPopup
-@onready var btn_cancel = $CanvasLayer/PionPopup/BtnCancel
-@onready var pion_label = $CanvasLayer/PionPopup/LabelHorseName
-@onready var btn_confirm = $CanvasLayer/PionPopup/BtnConfirm
-@onready var mod_list = $CanvasLayer/PionPopup/ModifierList
+@onready var btn_shop = $BtnShop
+@onready var btn_back_shop = $BtnBackShop
+@onready var main_ui = $Main
+@onready var btn_back = $BtnBack
+@onready var map_desk = $RoomView/DeskView/MapDesk
+@onready var label_cash_world = $PanelMoney/VBoxMoney/LabelCashWorld
+@onready var label_tranche_world = $PanelMoney/VBoxMoney/LabelTrancheWorld
+@onready var panel_money = $PanelMoney
+@onready var pion_bg = $PionBg
+@onready var pion_popup = $PionPopup
+@onready var btn_cancel = $PionPopup/BtnCancel
+@onready var pion_label = $PionPopup/LabelHorseName
+@onready var btn_confirm = $PionPopup/BtnConfirm
+@onready var mod_list = $PionPopup/ModifierList
+@onready var room_view = $RoomView
+@onready var desk_view = $RoomView/DeskView
+@onready var shop_view = $RoomView/ShopView
+@onready var pions_view = $RoomView/DeskView/Pions
 @onready var pions = [
-	$Room/Pions/pion1,
-	$Room/Pions/pion2,
-	$Room/Pions/pion3,
-	$Room/Pions/pion4
+	$RoomView/DeskView/Pions/Pion1,
+	$RoomView/DeskView/Pions/Pion2,
+	$RoomView/DeskView/Pions/Pion3,
+	$RoomView/DeskView/Pions/Pion4
 ]
 @onready var emplacements = [
-	$Room/Boutique/Emplacement1,
-	$Room/Boutique/Emplacement2,
-	$Room/Boutique/Emplacement3
+	$RoomView/ShopView/Emplacement1,
+	$RoomView/ShopView/Emplacement2,
+	$RoomView/ShopView/Emplacement3
 ]
 @onready var desk_slots = [
-	$Room/Bureau/Slot1,
-	$Room/Bureau/Slot2,
-	$Room/Bureau/Slot3,
-	$Room/Bureau/Slot4
+	$RoomView/DeskView/Bureau/Slot1,
+	$RoomView/DeskView/Bureau/Slot2,
+	$RoomView/DeskView/Bureau/Slot3,
+	$RoomView/DeskView/Bureau/Slot4
 ]
-@onready var extra_desk = $Room/Furnitures/BureauSupplementaire
+@onready var extra_desk = $RoomView/DeskView/Bureau/BureauSupplementaire
 
 var _boite_names = {
 	"mod_sabotage": "sabotage",
@@ -50,34 +53,28 @@ var _boite_names = {
 	"mod_deskupgrade" : "deskupgrade"
 }
 
-var default_cam_pos: Vector3
-var default_cam_rot: Vector3
-
 var _selected_mod: ModifierBase = null
 
 var hud: HudDisplay
-var map_camera: MapCameraController
+var map_nav: MapCameraController
 var shop: ShopManager
 var desk: DeskManager
 var pion_manager: PionManager
 
 # ── Ready ─────────────────────────────────────────
 func _ready():
-	default_cam_pos = camera.position
-	default_cam_rot = camera.rotation
-
 	hud = HudDisplay.new()
 	add_child(hud)
 	hud.setup(panel_money, label_cash_world, label_tranche_world)
 
-	map_camera = MapCameraController.new()
-	add_child(map_camera)
-	map_camera.setup(camera, main_ui, btn_back, btn_shop, default_cam_pos, default_cam_rot)
-	click_area.input_event.connect(map_camera.on_carte_clicked)
+	map_nav = MapCameraController.new()
+	add_child(map_nav)
+	map_nav.setup(room_view, main_ui, btn_back, btn_shop)
+	map_desk.pressed.connect(map_nav.zoom_in)
 
 	shop = ShopManager.new()
 	add_child(shop)
-	shop.setup(camera, btn_shop, btn_back_shop, pion_bg, emplacements, _boite_names, default_cam_pos, default_cam_rot)
+	shop.setup(desk_view, shop_view, btn_shop, btn_back_shop, pion_bg, emplacements, _boite_names, map_desk, pions_view)
 	shop.item_selection_started.connect(_on_shop_item_selected)
 	shop.item_selection_cancelled.connect(_close_selection_popup)
 	shop.purchase_confirmed.connect(_close_selection_popup)
@@ -88,7 +85,7 @@ func _ready():
 
 	pion_manager = PionManager.new()
 	add_child(pion_manager)
-	pion_manager.setup(camera, pion_bg, pions, main_ui, btn_shop, btn_back_shop)
+	pion_manager.setup(pion_bg, pions, main_ui, btn_shop, btn_back_shop)
 	pion_manager.selection_started.connect(_on_pion_selected)
 	pion_manager.selection_cancelled.connect(_close_selection_popup)
 	pion_manager.target_confirmed.connect(_close_selection_popup)
@@ -98,9 +95,8 @@ func _ready():
 	btn_confirm.pressed.connect(_on_confirm_pressed)
 	btn_cancel.pressed.connect(_on_cancel_pressed)
 
-func _process(delta):
+func _process(_delta):
 	hud.refresh_tranche()
-	pion_manager.process_rotation(delta)
 
 # ── Popup de sélection (partagée boutique / ciblage) ──
 func _style_popup():
@@ -141,6 +137,12 @@ func _on_shop_item_selected(mod: ModifierBase) -> void:
 	pion_popup.visible = true
 
 func _on_pion_selected(horse: Horse) -> void:
+	# Le bureau reste visible (dimmé) derrière la popup, mais "Carte des
+	# paris" et les autres pions gêneraient visuellement par-dessus : on les
+	# cache le temps du choix (le nom du cheval choisi est déjà affiché en
+	# grand dans la popup, pas besoin de garder les boutons visibles).
+	map_desk.visible = false
+	pions_view.visible = false
 	pion_label.text = horse.horse_name
 
 	for child in mod_list.get_children():
@@ -222,3 +224,5 @@ func _close_selection_popup() -> void:
 	pion_popup.visible = false
 	btn_back_shop.visible = shop.in_shop
 	btn_shop.visible = not shop.in_shop
+	map_desk.visible = not shop.in_shop
+	pions_view.visible = not shop.in_shop

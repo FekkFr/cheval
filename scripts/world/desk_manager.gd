@@ -1,16 +1,18 @@
 extends Node
 class_name DeskManager
 ## Affiche sur le bureau les objets actuellement possédés (achetés à la
-## et tentative de supprimer du bureau (code a refaire)
+## boutique). Logique inchangée par rapport à la version 3D — seul le type
+## des nœuds change (Node3D → Control), le reste ne dépendait pas de la 3D.
+## (et tentative de supprimer du bureau (code a refaire))
 
 const EXTRA_DESK_MOD_ID := "mod_deskupgrade"  # ce mod n'affiche pas de boîte dans un Slot,
 											   # il fait apparaître _extra_desk à la place
 
-var _slots: Array = []             # Array[Node3D] – emplacements du bureau
-var _boite_names: Dictionary = {}  # mod_id -> nom du noeud modèle 3D
-var _extra_desk: Node3D = null     # bureau supplémentaire (effet visuel de mod_deskupgrade)
+var _slots: Array = []             # Array[Control] – emplacements du bureau
+var _boite_names: Dictionary = {}  # mod_id -> nom du noeud placeholder
+var _extra_desk: Control = null    # bureau supplémentaire (effet visuel de mod_deskupgrade)
 
-func setup(slots: Array, boite_names: Dictionary, extra_desk: Node3D = null) -> void:
+func setup(slots: Array, boite_names: Dictionary, extra_desk: Control = null) -> void:
 	_slots = slots
 	_boite_names = boite_names
 	_extra_desk = extra_desk

@@ -1,365 +1,753 @@
 [gd_scene format=3 uid="uid://84wagx8bqibc"]
 
-[ext_resource type="Script" uid="uid://cbuvlbnbwmv4x" path="res://scripts/gamecamera.gd" id="1_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://chpi4aqkt6dn0" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/wall_1.glb" id="1_4wyf3"]
-[ext_resource type="PackedScene" uid="uid://byhs1sdc1qc80" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/floor0.glb" id="2_k0juu"]
-[ext_resource type="PackedScene" uid="uid://vnbtut4g4837" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/table.glb" id="3_71j4m"]
-[ext_resource type="PackedScene" uid="uid://c5cpl2fyyojq2" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/ceiling2.fbx" id="4_k0juu"]
-[ext_resource type="PackedScene" uid="uid://corbidfwrabhe" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/FBX/Structure/pillar0_1-4.fbx" id="5_qfnet"]
-[ext_resource type="PackedScene" uid="uid://ckbuabaty3tqm" path="res://assets/carte.tscn" id="6_qfnet"]
-[ext_resource type="PackedScene" uid="uid://d3k8po1jdxi71" path="res://scenes/main.tscn" id="7_4mrxx"]
-[ext_resource type="PackedScene" uid="uid://hdu0ryrrg88w" path="res://assets/statut.glb" id="9_7r4gi"]
-[ext_resource type="Script" uid="uid://babjtfjcf225r" path="res://scenes/debug.gd" id="10_w7kh3"]
-[ext_resource type="PackedScene" uid="uid://bvjc3q1yqdpcx" path="res://assets/objets/stimulant.glb" id="10_xo05s"]
-[ext_resource type="PackedScene" uid="uid://cn2hc72i38ys5" path="res://assets/bois.glb" id="11_o8fc1"]
-[ext_resource type="PackedScene" uid="uid://d0rvhfa1dgnc3" path="res://assets/objets/paris.glb" id="12_xo05s"]
-[ext_resource type="PackedScene" uid="uid://cbblfkiq1jcdm" path="res://assets/objets/rumeur.glb" id="13_dss4m"]
-[ext_resource type="PackedScene" uid="uid://4ff71pj05w1p" path="res://assets/objets/sabotage.glb" id="14_7t5mc"]
-[ext_resource type="PackedScene" uid="uid://drjkadoxif5uc" path="res://assets/Retro PSX Style Mansion Assets v2.0 (INCLUDES GLTF)/Meshes/GLTF/study_desk.glb" id="15_stdydsk"]
+[ext_resource type="Script" uid="uid://cbuvlbnbwmv4x" path="res://scripts/gamecamera.gd" id="1_cam"]
+[ext_resource type="PackedScene" uid="uid://d3k8po1jdxi71" path="res://scenes/main.tscn" id="2_main"]
+[ext_resource type="Script" uid="uid://babjtfjcf225r" path="res://scenes/debug.gd" id="3_debug"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_elr2n"]
-size = Vector3(0.6130371, 0.6101074, 0.46350098)
+[node name="World" type="Control" unique_id=1928796693]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cam")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_d5qys"]
-size = Vector3(1, 0.91882324, 0.4751587)
+[node name="Background" type="ColorRect" parent="." unique_id=1171858676]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.145, 0.11, 0.08, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hjp0y"]
-size = Vector3(1, 1.7145996, 3.4576416)
+[node name="BackgroundLabel" type="Label" parent="Background" unique_id=687154289]
+modulate = Color(1, 1, 1, 0.25)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "(placeholder : décor du bureau à dessiner ici)"
+horizontal_alignment = 1
 
-[node name="World" type="Node3D" unique_id=1595518245]
-script = ExtResource("1_4mrxx")
+[node name="RoomView" type="Control" parent="." unique_id=627574097]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=212301542]
-transform = Transform3D(0.7939118, 2.6577958e-08, -0.608033, 0.60803294, -3.4702982e-08, 0.7939118, -1.6370426e-15, -1, -4.3711385e-08, -0.6095648, 6.3283463, 0)
-light_color = Color(1, 0.6666667, 0.2, 1)
-light_energy = 21.97
-shadow_bias = 0.5
-spot_range = 7.59
-spot_angle = 31.75
+[node name="DeskView" type="Control" parent="RoomView" unique_id=1030670150]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1475279157]
-transform = Transform3D(0.7927941, -2.6641617e-08, 0.6094894, -0.6094894, -3.465413e-08, 0.7927942, 5.2312437e-16, -1, -4.371138e-08, -0.6095648, 6.3283463, 0)
-light_color = Color(0.5334693, 0.81856185, 0.69662374, 1)
-light_energy = 21.97
-shadow_bias = 0.5
-spot_range = 7.59
-spot_angle = 31.75
+[node name="MapDesk" type="Button" parent="RoomView/DeskView" unique_id=68441920]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 260.0
+offset_right = 790.0
+offset_bottom = 380.0
+text = "Carte des paris"
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1850855140]
-transform = Transform3D(-4.371139e-08, 0.19594614, -0.98061466, 0, 0.98061466, 0.19594614, 1, 8.5650775e-09, -4.2864027e-08, -2.393, 3.848, 0)
-fov = 60.0
+[node name="Pions" type="Control" parent="RoomView/DeskView" unique_id=2007709122]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="Room" type="Node" parent="." unique_id=1627982376]
+[node name="Pion1" type="Button" parent="RoomView/DeskView/Pions" unique_id=1026197338]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 560.0
+offset_right = 480.0
+offset_bottom = 660.0
+text = "Cheval 1"
 
-[node name="Floors" type="Node" parent="Room" unique_id=1730846135]
+[node name="Pion2" type="Button" parent="RoomView/DeskView/Pions" unique_id=34920986]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 560.0
+offset_right = 620.0
+offset_bottom = 660.0
+text = "Cheval 2"
 
-[node name="floor02" parent="Room/Floors" unique_id=1789224365 instance=ExtResource("2_k0juu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+[node name="Pion3" type="Button" parent="RoomView/DeskView/Pions" unique_id=357328401]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 560.0
+offset_right = 760.0
+offset_bottom = 660.0
+text = "Cheval 3"
 
-[node name="floor05" parent="Room/Floors" unique_id=877690071 instance=ExtResource("2_k0juu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6, 0, 0)
+[node name="Pion4" type="Button" parent="RoomView/DeskView/Pions" unique_id=1588593940]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 560.0
+offset_right = 900.0
+offset_bottom = 660.0
+text = "Cheval 4"
 
-[node name="floor04" parent="Room/Floors" unique_id=1648527925 instance=ExtResource("2_k0juu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -6)
+[node name="Bureau" type="Control" parent="RoomView/DeskView" unique_id=1866765057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="floor03" parent="Room/Floors" unique_id=1095471470 instance=ExtResource("2_k0juu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 6)
+[node name="Slot1" type="Control" parent="RoomView/DeskView/Bureau" unique_id=56877264]
+anchors_preset = 0
+offset_left = 435.0
+offset_top = 40.0
+offset_right = 515.0
+offset_bottom = 120.0
+mouse_filter = 2
 
-[node name="Furnitures" type="Node" parent="Room" unique_id=1498677988]
-
-[node name="table" parent="Room/Furnitures" unique_id=1461178710 instance=ExtResource("3_71j4m")]
-transform = Transform3D(1.4999368, -0.013760026, 0, 0.013760026, 1.4999368, 0, 0, 0, 1.5, 0.03875172, 0, 0)
-
-[node name="BureauSupplementaire" parent="Room/Furnitures" unique_id=1768715338 instance=ExtResource("15_stdydsk")]
-transform = Transform3D(-0.8979726, 0, -0.44005144, 0, 1, 0, 0.44005144, 0, -0.8979726, 1.1123018, 1.6770651, 1.8961638)
+[node name="rumeur" type="Label" parent="RoomView/DeskView/Bureau/Slot1" unique_id=468273093]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rumeur"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="Walls" type="Node" parent="Room" unique_id=920003869]
-
-[node name="wall_12" parent="Room/Walls" unique_id=2025321017 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -5)
-
-[node name="wall_21" parent="Room/Walls" unique_id=1533107156 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6, 0, -3)
-
-[node name="wall_13" parent="Room/Walls" unique_id=613260438 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 0, 0, 5)
-
-[node name="wall_14" parent="Room/Walls" unique_id=929631543 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, -6, 0, 3)
-
-[node name="wall_15" parent="Room/Walls" unique_id=749257607 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -9, 0, 0)
-
-[node name="wall_17" parent="Room/Walls" unique_id=588277337 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -3, 0, -6)
-
-[node name="wall_16" parent="Room/Walls" unique_id=23034451 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, -3, 0, 6)
-
-[node name="wall_18" parent="Room/Walls" unique_id=850991160 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 3, 0, 0)
-
-[node name="wall_19" parent="Room/Walls" unique_id=1334443945 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 3, 0, -6)
-
-[node name="wall_20" parent="Room/Walls" unique_id=1075336065 instance=ExtResource("1_4wyf3")]
-transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 3, 0, 6)
-
-[node name="Ceiling" type="Node" parent="Room" unique_id=1355281788]
-
-[node name="ceiling2" parent="Room/Ceiling" unique_id=604754395 instance=ExtResource("4_k0juu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.03230667, 0.0025811195, 0.024681091)
-
-[node name="ceiling5" parent="Room/Ceiling" unique_id=1915949067 instance=ExtResource("4_k0juu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -5.9676933, 0.0025811195, 0.024681091)
-
-[node name="ceiling4" parent="Room/Ceiling" unique_id=286131228 instance=ExtResource("4_k0juu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 6)
-
-[node name="ceiling3" parent="Room/Ceiling" unique_id=1277518803 instance=ExtResource("4_k0juu")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -6)
-
-[node name="Pillar" type="Node" parent="Room" unique_id=184711477]
-
-[node name="G_Pillar" parent="Room/Pillar" unique_id=1888423294 instance=ExtResource("5_qfnet")]
-transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 3, 0, -5)
-
-[node name="D_Pillar" parent="Room/Pillar" unique_id=2121976160 instance=ExtResource("5_qfnet")]
-transform = Transform3D(-3, 0, 2.6226832e-07, 0, 3, 0, -2.6226832e-07, 0, -3, 3, 0, 5)
-
-[node name="Pions" type="Node" parent="Room" unique_id=1230045944]
-
-[node name="pion1" parent="Room/Pions" unique_id=940754388 instance=ExtResource("9_7r4gi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.615, 2.323, -0.893505)
-
-[node name="ClickArea" type="Area3D" parent="Room/Pions/pion1" unique_id=472470436]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Pions/pion1/ClickArea" unique_id=374451100]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.29406738, 0.013244629)
-shape = SubResource("BoxShape3D_elr2n")
-
-[node name="pion2" parent="Room/Pions" unique_id=2078883902 instance=ExtResource("9_7r4gi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.615, 2.323, -0.29350495)
-
-[node name="ClickArea" type="Area3D" parent="Room/Pions/pion2" unique_id=129077456]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Pions/pion2/ClickArea" unique_id=1679004222]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.29406738, 0.013244629)
-shape = SubResource("BoxShape3D_elr2n")
-
-[node name="pion3" parent="Room/Pions" unique_id=293311285 instance=ExtResource("9_7r4gi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.615, 2.323, 0.30649507)
-
-[node name="ClickArea" type="Area3D" parent="Room/Pions/pion3" unique_id=1660182119]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Pions/pion3/ClickArea" unique_id=380080497]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.29406738, 0.013244629)
-shape = SubResource("BoxShape3D_elr2n")
-
-[node name="pion4" parent="Room/Pions" unique_id=894443104 instance=ExtResource("9_7r4gi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.615, 2.323, 0.9064951)
-
-[node name="ClickArea" type="Area3D" parent="Room/Pions/pion4" unique_id=1585992444]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Pions/pion4/ClickArea" unique_id=1376287033]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.29406738, 0.013244629)
-shape = SubResource("BoxShape3D_elr2n")
-
-[node name="Boutique" type="Node3D" parent="Room" unique_id=1045290022]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 0)
-
-[node name="Emplacement1" type="Node3D" parent="Room/Boutique" unique_id=458642099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43933868, 0.3852663, 0)
-
-[node name="rumeur" parent="Room/Boutique/Emplacement1" unique_id=1094681805 instance=ExtResource("13_dss4m")]
+[node name="sabotage" type="Label" parent="RoomView/DeskView/Bureau/Slot1" unique_id=1847952634]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabotage" parent="Room/Boutique/Emplacement1" unique_id=1353508206 instance=ExtResource("14_7t5mc")]
+[node name="stimulant" type="Label" parent="RoomView/DeskView/Bureau/Slot1" unique_id=222242932]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stimulant"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="stimulant" parent="Room/Boutique/Emplacement1" unique_id=251945040 instance=ExtResource("10_xo05s")]
+[node name="paris" type="Label" parent="RoomView/DeskView/Bureau/Slot1" unique_id=1409714193]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pari perso"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="paris" parent="Room/Boutique/Emplacement1" unique_id=180487222 instance=ExtResource("12_xo05s")]
+[node name="sabodiscret" type="Label" parent="RoomView/DeskView/Bureau/Slot1" unique_id=1507570322]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage discret"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabodiscret" parent="Room/Boutique/Emplacement1" unique_id=1857833360 instance=ExtResource("14_7t5mc")]
+[node name="deskupgrade" type="Label" parent="RoomView/DeskView/Bureau/Slot1" unique_id=1049857849]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bureau+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="deskupgrade" parent="Room/Boutique/Emplacement1" unique_id=1867189910 instance=ExtResource("14_7t5mc")]
+[node name="Slot2" type="Control" parent="RoomView/DeskView/Bureau" unique_id=1618774377]
+anchors_preset = 0
+offset_left = 545.0
+offset_top = 40.0
+offset_right = 625.0
+offset_bottom = 120.0
+mouse_filter = 2
+
+[node name="rumeur" type="Label" parent="RoomView/DeskView/Bureau/Slot2" unique_id=2092783824]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rumeur"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="ClickArea" type="Area3D" parent="Room/Boutique/Emplacement1" unique_id=676546337]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Boutique/Emplacement1/ClickArea" unique_id=1247986693]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04058838, 0.002105713)
-shape = SubResource("BoxShape3D_d5qys")
-
-[node name="Emplacement2" type="Node3D" parent="Room/Boutique" unique_id=578646370]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43933868, 0.3852663, -1)
-
-[node name="rumeur" parent="Room/Boutique/Emplacement2" unique_id=945285331 instance=ExtResource("13_dss4m")]
+[node name="sabotage" type="Label" parent="RoomView/DeskView/Bureau/Slot2" unique_id=1500766856]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabotage" parent="Room/Boutique/Emplacement2" unique_id=1246274608 instance=ExtResource("14_7t5mc")]
+[node name="stimulant" type="Label" parent="RoomView/DeskView/Bureau/Slot2" unique_id=1787791316]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stimulant"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="stimulant" parent="Room/Boutique/Emplacement2" unique_id=417387465 instance=ExtResource("10_xo05s")]
+[node name="paris" type="Label" parent="RoomView/DeskView/Bureau/Slot2" unique_id=780848352]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pari perso"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="paris" parent="Room/Boutique/Emplacement2" unique_id=1366341311 instance=ExtResource("12_xo05s")]
+[node name="sabodiscret" type="Label" parent="RoomView/DeskView/Bureau/Slot2" unique_id=253049545]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage discret"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabodiscret" parent="Room/Boutique/Emplacement2" unique_id=459639746 instance=ExtResource("14_7t5mc")]
+[node name="deskupgrade" type="Label" parent="RoomView/DeskView/Bureau/Slot2" unique_id=683746084]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bureau+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="deskupgrade" parent="Room/Boutique/Emplacement2" unique_id=1534474887 instance=ExtResource("14_7t5mc")]
+[node name="Slot3" type="Control" parent="RoomView/DeskView/Bureau" unique_id=1318578073]
+anchors_preset = 0
+offset_left = 655.0
+offset_top = 40.0
+offset_right = 735.0
+offset_bottom = 120.0
+mouse_filter = 2
+
+[node name="rumeur" type="Label" parent="RoomView/DeskView/Bureau/Slot3" unique_id=960278401]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rumeur"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="ClickArea" type="Area3D" parent="Room/Boutique/Emplacement2" unique_id=1533836120]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Boutique/Emplacement2/ClickArea" unique_id=1820654880]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04058838, 0.002105713)
-shape = SubResource("BoxShape3D_d5qys")
-
-[node name="Emplacement3" type="Node3D" parent="Room/Boutique" unique_id=226924521]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43933868, 0.3852663, 1)
-
-[node name="rumeur" parent="Room/Boutique/Emplacement3" unique_id=1128348926 instance=ExtResource("13_dss4m")]
+[node name="sabotage" type="Label" parent="RoomView/DeskView/Bureau/Slot3" unique_id=847143015]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabotage" parent="Room/Boutique/Emplacement3" unique_id=1326667844 instance=ExtResource("14_7t5mc")]
+[node name="stimulant" type="Label" parent="RoomView/DeskView/Bureau/Slot3" unique_id=1071343708]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stimulant"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="stimulant" parent="Room/Boutique/Emplacement3" unique_id=2145319906 instance=ExtResource("10_xo05s")]
+[node name="paris" type="Label" parent="RoomView/DeskView/Bureau/Slot3" unique_id=1725886263]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pari perso"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="paris" parent="Room/Boutique/Emplacement3" unique_id=802645212 instance=ExtResource("12_xo05s")]
+[node name="sabodiscret" type="Label" parent="RoomView/DeskView/Bureau/Slot3" unique_id=2059258901]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage discret"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabodiscret" parent="Room/Boutique/Emplacement3" unique_id=1322832546 instance=ExtResource("14_7t5mc")]
+[node name="deskupgrade" type="Label" parent="RoomView/DeskView/Bureau/Slot3" unique_id=759216320]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bureau+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="deskupgrade" parent="Room/Boutique/Emplacement3" unique_id=2102110928 instance=ExtResource("14_7t5mc")]
+[node name="Slot4" type="Control" parent="RoomView/DeskView/Bureau" unique_id=2107161202]
+anchors_preset = 0
+offset_left = 765.0
+offset_top = 40.0
+offset_right = 845.0
+offset_bottom = 120.0
+mouse_filter = 2
+
+[node name="rumeur" type="Label" parent="RoomView/DeskView/Bureau/Slot4" unique_id=14553135]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rumeur"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="ClickArea" type="Area3D" parent="Room/Boutique/Emplacement3" unique_id=359783762]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/Boutique/Emplacement3/ClickArea" unique_id=383673117]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04058838, 0.002105713)
-shape = SubResource("BoxShape3D_d5qys")
-
-[node name="Bureau" type="Node3D" parent="Room" unique_id=1473158606]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.9, 0)
-
-[node name="Slot1" type="Node3D" parent="Room/Bureau" unique_id=339081663]
-transform = Transform3D(0.809017, 0, 0.58778524, 0, 1, 0, -0.58778524, 0, 0.809017, 0.6081454, 1.7906226, -1.9065391)
-
-[node name="rumeur" parent="Room/Bureau/Slot1" unique_id=690620971 instance=ExtResource("13_dss4m")]
+[node name="sabotage" type="Label" parent="RoomView/DeskView/Bureau/Slot4" unique_id=606573429]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabotage" parent="Room/Bureau/Slot1" unique_id=625901256 instance=ExtResource("14_7t5mc")]
+[node name="stimulant" type="Label" parent="RoomView/DeskView/Bureau/Slot4" unique_id=1753742899]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stimulant"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="stimulant" parent="Room/Bureau/Slot1" unique_id=579341423 instance=ExtResource("10_xo05s")]
+[node name="paris" type="Label" parent="RoomView/DeskView/Bureau/Slot4" unique_id=962308463]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pari perso"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="paris" parent="Room/Bureau/Slot1" unique_id=399655412 instance=ExtResource("12_xo05s")]
+[node name="sabodiscret" type="Label" parent="RoomView/DeskView/Bureau/Slot4" unique_id=1658662470]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage discret"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabodiscret" parent="Room/Bureau/Slot1" unique_id=1681559892 instance=ExtResource("14_7t5mc")]
+[node name="deskupgrade" type="Label" parent="RoomView/DeskView/Bureau/Slot4" unique_id=1632384311]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bureau+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="deskupgrade" parent="Room/Bureau/Slot1" unique_id=1991337701 instance=ExtResource("14_7t5mc")]
+[node name="BureauSupplementaire" type="ColorRect" parent="RoomView/DeskView/Bureau" unique_id=1529348032]
 visible = false
+layout_mode = 0
+offset_left = 435.0
+offset_top = 140.0
+offset_right = 845.0
+offset_bottom = 190.0
+mouse_filter = 2
+color = Color(0.55, 0.42, 0.24, 0.6)
 
-[node name="Slot2" type="Node3D" parent="Room/Bureau" unique_id=153710184]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0747573, 1.7906226, -1.5413646)
+[node name="BureauSupplementaireLabel" type="Label" parent="RoomView/DeskView/Bureau/BureauSupplementaire" unique_id=1118866076]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bureau supplémentaire"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="rumeur" parent="Room/Bureau/Slot2" unique_id=320106707 instance=ExtResource("13_dss4m")]
+[node name="ShopView" type="Control" parent="RoomView" unique_id=1875159661]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="sabotage" parent="Room/Bureau/Slot2" unique_id=1553201078 instance=ExtResource("14_7t5mc")]
+[node name="Emplacement1" type="Button" parent="RoomView/ShopView" unique_id=451253191]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 250.0
+offset_right = 470.0
+offset_bottom = 470.0
+
+[node name="rumeur" type="Label" parent="RoomView/ShopView/Emplacement1" unique_id=2106682683]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rumeur"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="stimulant" parent="Room/Bureau/Slot2" unique_id=1690571865 instance=ExtResource("10_xo05s")]
+[node name="sabotage" type="Label" parent="RoomView/ShopView/Emplacement1" unique_id=1326905394]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="paris" parent="Room/Bureau/Slot2" unique_id=2015941032 instance=ExtResource("12_xo05s")]
+[node name="stimulant" type="Label" parent="RoomView/ShopView/Emplacement1" unique_id=714288779]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stimulant"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabodiscret" parent="Room/Bureau/Slot2" unique_id=1271165722 instance=ExtResource("14_7t5mc")]
+[node name="paris" type="Label" parent="RoomView/ShopView/Emplacement1" unique_id=1404309743]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pari perso"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="deskupgrade" parent="Room/Bureau/Slot2" unique_id=2107531986 instance=ExtResource("14_7t5mc")]
+[node name="sabodiscret" type="Label" parent="RoomView/ShopView/Emplacement1" unique_id=1518326894]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage discret"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="Slot3" type="Node3D" parent="Room/Bureau" unique_id=1692467581]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6081454, 1.7906226, 1.7802995)
-
-[node name="rumeur" parent="Room/Bureau/Slot3" unique_id=286699713 instance=ExtResource("13_dss4m")]
+[node name="deskupgrade" type="Label" parent="RoomView/ShopView/Emplacement1" unique_id=1187686465]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bureau+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabotage" parent="Room/Bureau/Slot3" unique_id=1368073012 instance=ExtResource("14_7t5mc")]
+[node name="Emplacement2" type="Button" parent="RoomView/ShopView" unique_id=64242934]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 250.0
+offset_right = 750.0
+offset_bottom = 470.0
+
+[node name="rumeur" type="Label" parent="RoomView/ShopView/Emplacement2" unique_id=475519115]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rumeur"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="stimulant" parent="Room/Bureau/Slot3" unique_id=1006070220 instance=ExtResource("10_xo05s")]
+[node name="sabotage" type="Label" parent="RoomView/ShopView/Emplacement2" unique_id=1272713069]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="paris" parent="Room/Bureau/Slot3" unique_id=168252793 instance=ExtResource("12_xo05s")]
+[node name="stimulant" type="Label" parent="RoomView/ShopView/Emplacement2" unique_id=2011153019]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stimulant"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabodiscret" parent="Room/Bureau/Slot3" unique_id=163989047 instance=ExtResource("14_7t5mc")]
+[node name="paris" type="Label" parent="RoomView/ShopView/Emplacement2" unique_id=940433268]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pari perso"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="deskupgrade" parent="Room/Bureau/Slot3" unique_id=880222519 instance=ExtResource("14_7t5mc")]
+[node name="sabodiscret" type="Label" parent="RoomView/ShopView/Emplacement2" unique_id=825513719]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage discret"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="Slot4" type="Node3D" parent="Room/Bureau" unique_id=1902376145]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5370324, 1.7906226, 1.6546973)
-
-[node name="rumeur" parent="Room/Bureau/Slot4" unique_id=696424036 instance=ExtResource("13_dss4m")]
+[node name="deskupgrade" type="Label" parent="RoomView/ShopView/Emplacement2" unique_id=134657581]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bureau+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabotage" parent="Room/Bureau/Slot4" unique_id=1595710737 instance=ExtResource("14_7t5mc")]
+[node name="Emplacement3" type="Button" parent="RoomView/ShopView" unique_id=1836264642]
+layout_mode = 0
+offset_left = 810.0
+offset_top = 250.0
+offset_right = 1030.0
+offset_bottom = 470.0
+
+[node name="rumeur" type="Label" parent="RoomView/ShopView/Emplacement3" unique_id=1930912185]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Rumeur"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="stimulant" parent="Room/Bureau/Slot4" unique_id=1944186457 instance=ExtResource("10_xo05s")]
+[node name="sabotage" type="Label" parent="RoomView/ShopView/Emplacement3" unique_id=1800239621]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="paris" parent="Room/Bureau/Slot4" unique_id=545305056 instance=ExtResource("12_xo05s")]
+[node name="stimulant" type="Label" parent="RoomView/ShopView/Emplacement3" unique_id=120123952]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Stimulant"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="sabodiscret" parent="Room/Bureau/Slot4" unique_id=435396520 instance=ExtResource("14_7t5mc")]
+[node name="paris" type="Label" parent="RoomView/ShopView/Emplacement3" unique_id=1708599357]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pari perso"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="deskupgrade" parent="Room/Bureau/Slot4" unique_id=205208673 instance=ExtResource("14_7t5mc")]
+[node name="sabodiscret" type="Label" parent="RoomView/ShopView/Emplacement3" unique_id=534786023]
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sabotage discret"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="Carte" parent="." unique_id=619825586 instance=ExtResource("6_qfnet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.742, 4.06, 0)
+[node name="deskupgrade" type="Label" parent="RoomView/ShopView/Emplacement3" unique_id=176604637]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bureau+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
-[node name="ClickArea" type="Area3D" parent="Carte/Cube" parent_id_path=PackedInt32Array(619825586, 746306846) index="0" unique_id=2105549594]
+[node name="Main" parent="." unique_id=313020196 instance=ExtResource("2_main")]
+visible = false
+layout_mode = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Carte/Cube/ClickArea" unique_id=67695842]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.020454, -0.08394003, -0.014221191)
-shape = SubResource("BoxShape3D_hjp0y")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=493805994]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.027953, 0)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1563262921]
-
-[node name="Main" parent="CanvasLayer" unique_id=2037518860 instance=ExtResource("7_4mrxx")]
-anchors_preset = -1
-offset_left = 412.745
-offset_top = 100.0
-offset_right = 412.745
-offset_bottom = 100.0
-scale = Vector2(0.34, 0.34)
-
-[node name="BtnBack" type="Button" parent="CanvasLayer" unique_id=692749410]
+[node name="BtnBack" type="Button" parent="." unique_id=938637984]
+visible = false
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -372,64 +760,57 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "RETOUR"
 
-[node name="PanelCash" type="PanelContainer" parent="CanvasLayer" unique_id=855835904]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -710.0
-offset_bottom = -670.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="PanelMoney" type="PanelContainer" parent="CanvasLayer" unique_id=1301786749]
+[node name="PanelMoney" type="PanelContainer" parent="." unique_id=2108612249]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 50.0
+offset_left = -220.0
+offset_bottom = 90.0
 grow_horizontal = 0
 
-[node name="VBoxMoney" type="VBoxContainer" parent="CanvasLayer/PanelMoney" unique_id=1692661996]
+[node name="VBoxMoney" type="VBoxContainer" parent="PanelMoney" unique_id=583801351]
 layout_mode = 2
 
-[node name="LabelCashWorld" type="Label" parent="CanvasLayer/PanelMoney/VBoxMoney" unique_id=1950619084]
+[node name="LabelCashWorld" type="Label" parent="PanelMoney/VBoxMoney" unique_id=998036275]
 layout_mode = 2
 
-[node name="LabelTrancheWorld" type="Label" parent="CanvasLayer/PanelMoney/VBoxMoney" unique_id=124360702]
+[node name="LabelTrancheWorld" type="Label" parent="PanelMoney/VBoxMoney" unique_id=407285199]
 layout_mode = 2
 
-[node name="PionBg" type="ColorRect" parent="CanvasLayer" unique_id=644014114]
+[node name="PionBg" type="ColorRect" parent="." unique_id=548787010]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.4627451)
 
-[node name="PionPopup" type="Control" parent="CanvasLayer" unique_id=1831268467]
+[node name="PionPopup" type="Control" parent="." unique_id=1538931379]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LabelHorseName" type="Label" parent="CanvasLayer/PionPopup" unique_id=1336529887]
+[node name="LabelHorseName" type="Label" parent="PionPopup" unique_id=402477416]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -120.0
+offset_top = 200.0
+offset_right = 120.0
+offset_bottom = 240.0
 grow_horizontal = 2
+horizontal_alignment = 1
 
-[node name="BtnConfirm" type="Button" parent="CanvasLayer/PionPopup" unique_id=1914962346]
+[node name="BtnConfirm" type="Button" parent="PionPopup" unique_id=1698625395]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -441,10 +822,9 @@ offset_top = -50.0
 offset_right = -59.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "CONFIRM
-"
+text = "CONFIRM"
 
-[node name="BtnCancel" type="Button" parent="CanvasLayer/PionPopup" unique_id=106739794]
+[node name="BtnCancel" type="Button" parent="PionPopup" unique_id=1331987900]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -458,51 +838,49 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "RETOUR"
 
-[node name="ModifierList" type="VBoxContainer" parent="CanvasLayer/PionPopup" unique_id=1714277241]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ModifierList" type="VBoxContainer" parent="PionPopup" unique_id=1339863248]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 260.0
+offset_right = 100.0
+offset_bottom = 300.0
+grow_horizontal = 2
 
-[node name="BtnMod1" type="Button" parent="CanvasLayer/PionPopup/ModifierList" unique_id=641275524]
-layout_mode = 2
-
-[node name="BtnMod2" type="Button" parent="CanvasLayer/PionPopup/ModifierList" unique_id=1084459472]
-layout_mode = 2
-
-[node name="BtnMod3" type="Button" parent="CanvasLayer/PionPopup/ModifierList" unique_id=2082237061]
-layout_mode = 2
-
-[node name="BtnShop" type="Button" parent="CanvasLayer" unique_id=1122883896]
-custom_minimum_size = Vector2(71, 31)
+[node name="BtnShop" type="Button" parent="." unique_id=2138522170]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -35.5
-offset_top = -31.0
-offset_right = 35.5
+offset_left = -60.0
+offset_top = -50.0
+offset_right = 60.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
+text = "BOUTIQUE"
 
-[node name="BtnBackShop" type="Button" parent="CanvasLayer" unique_id=563793100]
+[node name="BtnBackShop" type="Button" parent="." unique_id=1903455622]
 visible = false
-custom_minimum_size = Vector2(71, 31)
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -35.5
-offset_top = -31.0
-offset_right = 35.5
+offset_left = -60.0
+offset_top = -50.0
+offset_right = 60.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
+text = "RETOUR"
 
-[node name="debug" type="Node" parent="." unique_id=1260297608]
-script = ExtResource("10_w7kh3")
-
-[node name="bois" parent="." unique_id=920657330 instance=ExtResource("11_o8fc1")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.557, 2.0835092, 0)
-
-[editable path="Carte"]
+[node name="Debug" type="Node" parent="." unique_id=1439275399]
+script = ExtResource("3_debug")

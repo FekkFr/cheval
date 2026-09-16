@@ -1,34 +1,48 @@
 extends Node
 class_name PionManager
+## Gère le ciblage des pions (chevaux). Version 2D : les pions sont des
+## Button, donc plus besoin d'Area3D/CollisionShape3D pour détecter le clic —
+## on écoute juste le signal `pressed`. Le surlignage à la sélection se fait
+## par teinte (modulate) au lieu d'un matériau émissif 3D.
 
 signal selection_started(horse: Horse)
 signal target_confirmed
 signal selection_cancelled
 
-var _camera: Camera3D
+const HIGHLIGHT_COLOR := Color("#e8d5b0")
+const DEFAULT_COLOR := Color(1, 1, 1, 1)
+const SELECTED_SCALE := Vector2(1.15, 1.15)
+
 var _pion_bg: ColorRect
 var _pions: Array
-var _pion_original_positions: Array = []
 var _main_ui
 var _btn_shop: Button
 var _btn_back_shop: Button
 
 var _pending_index: int = -1
-var _pending_pion: Node3D = null
+var _pending_pion: Control = null
 
-func setup(camera: Camera3D, pion_bg: ColorRect, pions: Array, main_ui, btn_shop: Button, btn_back_shop: Button) -> void:
-	_camera = camera
+func setup(pion_bg: ColorRect, pions: Array, main_ui, btn_shop: Button, btn_back_shop: Button) -> void:
 	_pion_bg = pion_bg
 	_pions = pions
 	_main_ui = main_ui
 	_btn_shop = btn_shop
 	_btn_back_shop = btn_back_shop
 
-	for pion in _pions:
-		_pion_original_positions.append(pion.position)
 	for i in _pions.size():
-		var area = _pions[i].get_node("ClickArea")
-		area.input_event.connect(_on_clicked.bind(i))
+		var pion: Control = _pions[i]
+		pion.pivot_offset = pion.size / 2.0
+		pion.pressed.connect(_on_clicked.bind(i))
+
+	# Les boutons affichent le vrai nom du cheval au lieu de "Cheval N", et se
+	# remettent à jour à chaque nouvelle course (nouveaux chevaux générés).
+	GameState.race_finished.connect(refresh_names)
+	refresh_names()
+
+func refresh_names() -> void:
+	for i in _pions.size():
+		if i < GameState.current_horses.size():
+			_pions[i].text = GameState.current_horses[i].horse_name
 
 func has_pending() -> bool:
 	return _pending_index != -1
@@ -36,8 +50,8 @@ func has_pending() -> bool:
 func get_pending_index() -> int:
 	return _pending_index
 
-func _on_clicked(_cam, event, _position, _normal, _shape_idx, index: int) -> void:
-	if not event is InputEventMouseButton or not event.pressed:
+func _on_clicked(index: int) -> void:
+	if has_pending():
 		return
 
 	var horse = GameState.current_horses[index]
@@ -47,18 +61,10 @@ func _on_clicked(_cam, event, _position, _normal, _shape_idx, index: int) -> voi
 	_btn_shop.visible = false
 	_btn_back_shop.visible = false
 
-	var target_pos = Vector3(
-		_camera.global_position.x + 1.8,
-		_camera.global_position.y - 1,
-		_camera.global_position.z
-	)
-
-	_set_emission(_pending_pion, true)
+	_set_highlight(_pending_pion, true)
 
 	var tween = create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(_pending_pion, "global_position", target_pos, 0.4).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(_pending_pion, "scale", Vector3(2.5, 2.5, 2.5), 0.4).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(_pending_pion, "scale", SELECTED_SCALE, 0.2).set_trans(Tween.TRANS_BACK)
 
 	_pion_bg.visible = true
 	var tween_bg = create_tween()
@@ -82,36 +88,13 @@ func cancel_selection() -> void:
 
 func _reset_pion() -> void:
 	var pion_to_reset = _pending_pion
-	var original_pos = _pion_original_positions[_pending_index]
 
 	var tween = create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(pion_to_reset, "global_position", original_pos, 0.3).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(pion_to_reset, "scale", Vector3(1.0, 1.0, 1.0), 0.3).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(pion_to_reset, "rotation:y", 0.0, 0.3)
-	_set_emission(pion_to_reset, false)
+	tween.tween_property(pion_to_reset, "scale", Vector2(1.0, 1.0), 0.2).set_trans(Tween.TRANS_CUBIC)
+	_set_highlight(pion_to_reset, false)
 
 	_pending_index = -1
 	_pending_pion = null
 
-func process_rotation(delta: float) -> void:
-	if _pending_pion != null:
-		var rot = _pending_pion.rotation
-		rot.y += delta * 0.8
-		_pending_pion.rotation = rot
-
-func _set_emission(pion_node, enabled: bool) -> void:
-	var mesh_names = ["Circle", "Circle_001", "Icosphere"]
-	for mesh_name in mesh_names:
-		var mesh = pion_node.get_node_or_null(mesh_name)
-		if mesh == null:
-			continue
-		for surface_idx in mesh.get_surface_override_material_count():
-			var mat = mesh.get_active_material(surface_idx)
-			if mat:
-				mat = mat.duplicate()
-				mat.emission_enabled = enabled
-				if enabled:
-					mat.emission = Color("#e8d5b0")
-					mat.emission_energy_multiplier = 0.8
-				mesh.set_surface_override_material(surface_idx, mat)
+func _set_highlight(pion_node: Control, enabled: bool) -> void:
+	pion_node.modulate = HIGHLIGHT_COLOR if enabled else DEFAULT_COLOR

@@ -22,6 +22,7 @@ extends Control
 @onready var btn_confirm = $PionPopup/BtnConfirm
 @onready var mod_list = $PionPopup/ModifierList
 @onready var room_view = $RoomView
+@onready var background = $Background
 @onready var desk_view = $RoomView/DeskView
 @onready var shop_view = $RoomView/ShopView
 @onready var pions_view = $RoomView/DeskView/Pions
@@ -69,7 +70,7 @@ func _ready():
 
 	map_nav = MapCameraController.new()
 	add_child(map_nav)
-	map_nav.setup(room_view, main_ui, btn_back, btn_shop)
+	map_nav.setup(room_view, main_ui, btn_back, btn_shop, map_desk, background)
 	map_desk.pressed.connect(map_nav.zoom_in)
 
 	shop = ShopManager.new()

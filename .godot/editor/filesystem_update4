@@ -1,4 +1,4 @@
-res://scripts/gamecamera.gd
-res://scripts/world/pion_manager.gd
-res://scripts/world/shop_manager.gd
 res://scenes/world.tscn
+res://scripts/gamecamera.gd
+res://scripts/world/map_camera.gd
+res://scenes/main.tscn

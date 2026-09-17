@@ -77,8 +77,9 @@ layout_mode = 2
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
+offset_left = 90.0
 offset_top = 130.0
-offset_right = 88.0
+offset_right = 178.0
 offset_bottom = 130.0
 grow_vertical = 2
 mouse_filter = 2
@@ -192,26 +193,24 @@ text = "🎯 CIBLER"
 [node name="SpinBox" type="SpinBox" parent="HorsesContainer/HorseCard4" unique_id=751565370]
 layout_mode = 2
 
-[node name="SuspicionPanel" type="PanelContainer" parent="." unique_id=3021559487]
+[node name="SuspicionPanel" type="PanelContainer" parent="." unique_id=-1273407809]
 layout_mode = 1
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 190.0
 offset_bottom = 60.0
 
-[node name="VBox" type="VBoxContainer" parent="SuspicionPanel" unique_id=3021559488]
+[node name="VBox" type="VBoxContainer" parent="SuspicionPanel" unique_id=-1273407808]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="LabelSuspicion" type="Label" parent="SuspicionPanel/VBox" unique_id=3021559489]
+[node name="LabelSuspicion" type="Label" parent="SuspicionPanel/VBox" unique_id=-1273407807]
 layout_mode = 2
 text = "SUSPICION : 0%"
 
-[node name="BarSuspicion" type="ProgressBar" parent="SuspicionPanel/VBox" unique_id=3021559490]
-layout_mode = 2
+[node name="BarSuspicion" type="ProgressBar" parent="SuspicionPanel/VBox" unique_id=-1273407806]
 custom_minimum_size = Vector2(0, 10)
-max_value = 100.0
-value = 0.0
+layout_mode = 2
 show_percentage = false
 
 [node name="BtnLaunch" type="Button" parent="." unique_id=713012559]
